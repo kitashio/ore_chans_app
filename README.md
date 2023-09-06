@@ -4,6 +4,15 @@
 
 チーム俺ちゃんずの開発用リポジトリです！ 
 
+### メンバー
+- Jboy
+- yui
+- taisei
+- satoru
+- minn
+
+5人で頑張ります！🔥
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
