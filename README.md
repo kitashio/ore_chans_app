@@ -1,6 +1,8 @@
 # ore_chans_app
 
-A new Flutter project.
+東京Flutterハッカソン9/30~10/1
+
+チーム俺ちゃんずの開発用リポジトリです！
 
 ## Getting Started
 
