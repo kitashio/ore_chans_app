@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ore_chans_app/doc_api/src/presentation/users_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
             foregroundColor: Colors.white,// AppBarのテキストの色
             centerTitle: true,// AndroidのAppBarを真ん中に配置する
           )),
-      home: const ,
+      home: const UsersPage(),
     );
   }
 }
