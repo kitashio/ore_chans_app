@@ -26,8 +26,8 @@ class PostPage extends ConsumerWidget {
       },
     );
     // Streamで全てのデータを取得する。
-    // final postAsyncValue = ref.watch(postStreamProvider);
-    final postAsyncValue = ref.watch(postDtoStreamProvider);
+    final postAsyncValue = ref.watch(postStreamProvider);
+    // final postAsyncValue = ref.watch(postDtoStreamProvider);
 
     return Scaffold(
       appBar: AppBar(
