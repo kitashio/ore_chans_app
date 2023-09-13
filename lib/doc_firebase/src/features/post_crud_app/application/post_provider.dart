@@ -2,7 +2,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/dto.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
 
 // Firestoreのlogを出すためのloggerを作成する
@@ -25,16 +24,5 @@ final postStreamProvider = StreamProvider.autoDispose<List<Post>>((ref) {
       data['id'] = doc.id;// QueryDocumentSnapshotが取れているので、documentIDをここで取得できる。
       return Post.fromJson(data);// ここのfromJsonでモデルクラスに変換している。
     }).toList();// ここでList<Post>に変換している。
-  });
-});
-
-// Dtoクラスを使って、ドキュメントIDを取得して使用するStreamProvider
-final postDtoStreamProvider = StreamProvider.autoDispose<List<Post>>((ref) {
-  final snapshot = ref.watch(fireStoreProvider).collection('post').snapshots();
-  return snapshot.map((snapshot) {
-    return snapshot.docs.map((doc) {
-      final dto = PostDTO.fromFirestore(doc.data(), doc.id);
-      return dto.toDomain();
-    }).toList();
   });
 });

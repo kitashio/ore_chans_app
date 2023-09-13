@@ -17,6 +17,3 @@ eコマース・アプリケーションを例にとると、以下のエンテ�
 
 **参考にした情報**
 https://codewithandrea.com/articles/flutter-app-architecture-domain-model/
-
-## DTOとは?
-DTOとは、Data Transfer Objectの略で、データの転送を行うためのオブジェクトのことです。
