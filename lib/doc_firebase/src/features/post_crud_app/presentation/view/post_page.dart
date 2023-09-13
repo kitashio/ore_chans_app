@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/auth/application/auth_notifier.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/data/post_provider.dart';
+import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/application/post_provider.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
 
