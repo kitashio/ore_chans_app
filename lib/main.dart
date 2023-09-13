@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/app/presentation/post_page.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/auth/data/auth_provider.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/auth/presentation/signin_page.dart';
+import 'package:ore_chans_app/doc_firebase/src/features/firestore_crud/presentation/post_page.dart';
 import 'package:ore_chans_app/firebase_options.dart';
 
 Future<void> main() async {
