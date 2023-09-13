@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/app/domain/converter/timestamp_converter.dart';
+import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/converter/timestamp_converter.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';

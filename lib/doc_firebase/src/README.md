@@ -5,7 +5,7 @@
 
 ```
 - feature
-  - app
+  - post_crud_app
     - application
     - domain
     - presentation
