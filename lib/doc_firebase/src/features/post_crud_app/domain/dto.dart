@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/application/post_provider.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
 
+/// [PostDTO]は、Firestoreから取得したデータを格納するためのクラス
 class PostDTO {
   final String? id;
   final String body;
@@ -36,13 +35,3 @@ class PostDTO {
     );
   }
 }
-
-final postDtoStreamProvider = StreamProvider.autoDispose<List<Post>>((ref) {
-  final snapshot = ref.watch(fireStoreProvider).collection('post').snapshots();
-  return snapshot.map((snapshot) {
-    return snapshot.docs.map((doc) {
-      final dto = PostDTO.fromFirestore(doc.data(), doc.id);
-      return dto.toDomain();
-    }).toList();
-  });
-});
