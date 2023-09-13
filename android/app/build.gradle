@@ -51,7 +51,7 @@ android {
         applicationId "com.example.ore_chans_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21// 最小バージョンを指定
+        minSdkVersion flutter.targetSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
