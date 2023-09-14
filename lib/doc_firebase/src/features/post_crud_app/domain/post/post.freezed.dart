@@ -20,10 +20,10 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Post {
-  String? get id => throw _privateConstructorUsedError;
-  String get body => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError; // ドキュメントIDを指定するのに使う
+  String get body => throw _privateConstructorUsedError; // 投稿の本文
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError; // 投稿の作成日時
   @TimestampConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
@@ -144,12 +144,15 @@ class _$_Post implements _Post {
 
   @override
   final String? id;
+// ドキュメントIDを指定するのに使う
   @override
   @JsonKey()
   final String body;
+// 投稿の本文
   @override
   @TimestampConverter()
   final DateTime? createdAt;
+// 投稿の作成日時
   @override
   @TimestampConverter()
   final DateTime? updatedAt;
@@ -201,12 +204,12 @@ abstract class _Post implements Post {
 
   @override
   String? get id;
-  @override
+  @override // ドキュメントIDを指定するのに使う
   String get body;
-  @override
+  @override // 投稿の本文
   @TimestampConverter()
   DateTime? get createdAt;
-  @override
+  @override // 投稿の作成日時
   @TimestampConverter()
   DateTime? get updatedAt;
   @override
