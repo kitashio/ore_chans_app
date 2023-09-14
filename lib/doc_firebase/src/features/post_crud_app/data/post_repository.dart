@@ -11,7 +11,7 @@ abstract class PostRepository {
 
 /*
 - 抽象クラスを継承して、メソッドを実装する。
-- withConverterを使用して、私た引数にtoJsonを書かずに済むようにした。
+- withConverterを使用して、渡す引数にtoJsonを書かずに済むようにした。
 - updateのところだけは、渡さないといけないので、toJsonを書いている。
 */
 class PostService implements PostRepository {
