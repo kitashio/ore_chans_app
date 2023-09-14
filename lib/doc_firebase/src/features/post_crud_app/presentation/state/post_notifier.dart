@@ -60,9 +60,7 @@ class PostNotifier extends AsyncNotifier<void> {
       state = const AsyncLoading();
       await ref.read(postServiceProvider).deletePost(postID);
       state = const AsyncValue<void>.data(null); // Successfully deleted
-      // ignore: avoid_catches_without_on_clauses
     } catch (e, stackTrace) {
-      // ignore: noop_primitive_operations
       state = AsyncError<void>('削除失敗: ${e.toString()}', stackTrace);
     }
   }
