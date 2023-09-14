@@ -53,3 +53,6 @@ windoiws/
 
 # macos
 macos/
+
+# LINE_API_KEY
+lib/line_api/application/key.dart
