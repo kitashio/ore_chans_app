@@ -12,6 +12,7 @@ class PostPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bodyController = TextEditingController();
+    final editController = TextEditingController();
     // エラー処理用のref.listen
     ref.listen<AsyncValue<void>>(
       postNotifierProvider,
@@ -84,7 +85,7 @@ class PostPage extends ConsumerWidget {
                                 icon: const Icon(Icons.edit),
                                 onPressed: () async {
                                   // ボタンを押すと編集用のダイアログが現れる
-                                  updateDialog(context, bodyController, posts,
+                                  updateDialog(context, editController, posts,
                                       index, ref);
                                 },
                               ),
@@ -122,7 +123,7 @@ class PostPage extends ConsumerWidget {
   // ダイアログをコンポーネント化
   Future<void> updateDialog(
       BuildContext context,
-      TextEditingController bodyController,
+      TextEditingController editController,
       List<Post> posts,
       int index,
       WidgetRef ref) {
@@ -132,7 +133,7 @@ class PostPage extends ConsumerWidget {
         return AlertDialog(
           title: const Text('投稿'),
           content: TextFormField(
-            controller: bodyController,
+        controller: editController,
             decoration: const InputDecoration(
               hintText: '本文',
               border: OutlineInputBorder(),
@@ -144,12 +145,12 @@ class PostPage extends ConsumerWidget {
                 final now = DateTime.now();
                 final post = Post(
                   id: posts[index].id,
-                  body: bodyController.text,
+                  body: editController.text,
                   createdAt: now,
                   updatedAt: now,
                 );
                 await ref.read(postNotifierProvider.notifier).updatePost(post);
-                bodyController.clear();
+                editController.clear();
                 if (context.mounted) {
                   Navigator.pop(context);
                 }

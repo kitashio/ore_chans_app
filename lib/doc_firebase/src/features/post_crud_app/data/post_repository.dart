@@ -9,44 +9,52 @@ abstract class PostRepository {
   Future<void> deletePost(String? postID);
 }
 
-// 抽象クラスを継承して、メソッドを実装する。
+/*
+- 抽象クラスを継承して、メソッドを実装する。
+- withConverterを使用して、私た引数にtoJsonを書かずに済むようにした。
+- updateのところだけは、渡さないといけないので、toJsonを書いている。
+*/
 class PostService implements PostRepository {
   PostService(this.ref);
-  Ref ref;// Refを使えるように、コンストラクタで受け取る。
+  Ref ref; // Refを使えるように、コンストラクタで受け取る。
 
+  // 追加のメソッド
   @override
   Future<void> addPost(Post post) async {
     try {
-      final postRef = ref.read(fireStoreProvider);
-      postRef.collection('post').add(post.toJson());
+      final postRef = ref.read(postReferenceWithConverter);
+      postRef.add(post);
     } catch (e) {
       throw e;
     }
   }
 
+  // 更新のメソッド
   @override
   Future<void> updatePost(Post post) async {
     try {
-      final postRef = ref.read(fireStoreProvider);
-      postRef.collection('post').doc(post.id).update(post.toJson());
+      final postRef = ref.read(postReferenceWithConverter);
+      postRef.doc(post.id).update(post.toJson());
     } catch (e) {
       throw e;
     }
   }
 
+  // 削除のメソッド
   @override
   Future<void> deletePost(String? postID) async {
     try {
-      final postRef = ref.read(fireStoreProvider);
-      postRef.collection('post').doc(postID).delete();
+      final postRef = ref.read(postReferenceWithConverter);
+      postRef.doc(postID).delete();
     } catch (e) {
       throw e;
     }
   }
 }
-
+// PostServiceを使えるようにするプロバイダー
 final postServiceProvider = Provider((ref) => PostService(ref));
 
+// 書き直す前のコード。View ModelにFirestoreを操作するロジックを書いてしまった。
 // final postNotifierProvider =
 //     AsyncNotifierProvider<PostNotifier, void>(PostNotifier.new);
 
@@ -58,7 +66,7 @@ final postServiceProvider = Provider((ref) => PostService(ref));
 
 //   // 投稿データを追加
 //   Future<void> sendPost(Post post) async {
-//     final postRef = ref.read(fireStoreProvider);
+//     final postRef = ref.read(postReferenceWithConverter);
 
 //     // 入力された値がnullだったら、ref.listenでエラーを表示する
 //     if (post.body.isEmpty) {
@@ -80,7 +88,7 @@ final postServiceProvider = Provider((ref) => PostService(ref));
 
 //   // 投稿データを更新
 //   Future<void> updatePost(Post post) async {
-//     final postRef = ref.read(fireStoreProvider);
+//     final postRef = ref.read(postReferenceWithConverter);
 
 //     try {
 //       state = const AsyncLoading();
@@ -97,7 +105,7 @@ final postServiceProvider = Provider((ref) => PostService(ref));
 //   ドキュメントIDはString?で渡されるようなので、引数の型をString?にしてnull許容にする必要があるみたいだ。
 //   */
 //   Future<void> deletePost(String? postID) async {
-//     final postRef = ref.read(fireStoreProvider);
+//     final postRef = ref.read(postReferenceWithConverter);
 
 //     try {
 //       state = const AsyncLoading();

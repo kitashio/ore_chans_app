@@ -4,9 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/data/post_repository.dart';
 import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
 
+// PostNotifierを使えるようにするプロバイダー
 final postNotifierProvider =
     AsyncNotifierProvider<PostNotifier, void>(PostNotifier.new);
 
+/*
+- View Modelの役割をするAsyncNotifier
+- ViewとModelの間にこのクラスを挟むことで、ViewとModelを分離する。
+- 入力フォームで null が入力されたら、ref.listenでエラーを表示する。
+ */
 class PostNotifier extends AsyncNotifier<void> {
   @override
   FutureOr<void> build() {

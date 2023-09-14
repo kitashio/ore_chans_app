@@ -26,3 +26,31 @@ final postStreamProvider = StreamProvider.autoDispose<List<Post>>((ref) {
     }).toList();// ここでList<Post>に変換している。
   });
 });
+
+// ----------------- 以下は、withConverterを使用した例 -----------------
+
+// メソッドで使用するWithConverter
+final postReferenceWithConverter = Provider.autoDispose((ref) {
+  return ref.watch(fireStoreProvider).collection('post').withConverter(
+        fromFirestore: (snapshot, _) => Post.fromJson(snapshot.data()!),
+        toFirestore: (post, _) => post.toJson(),
+      );
+});
+
+// ドキュメントIDを取得して使うことができるようにしたStreamProvider
+final poseRefStreamProvider = Provider.autoDispose((ref) {
+  return ref.watch(fireStoreProvider).collection('post').withConverter<Post?>(// Post? とすることでデータがない場合はnullを返す
+      fromFirestore: (ds, _) {
+        final data = ds.data();// sanpshot.data()! と同じ
+        final id = ds.id;// sanpshot.id と同じ
+
+        if (data == null) {// データがない場合はnullを返す
+          return null;
+        }
+        data['id'] = id;// idを追加
+        return Post.fromJson(data);
+      },
+      toFirestore: (value, _) {
+        return value?.toJson() ?? {};// valueがnullの場合は空のMapを返す
+      });
+});
