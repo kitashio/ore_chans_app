@@ -34,24 +34,32 @@ class MessageSenderPage extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: Row(
           children: [
-            TextField(
-              controller: _controller,
-              decoration: const InputDecoration(labelText: "Enter message"),
+            IconButton(
+                onPressed: () async {
+                  final text = _controller.text;
+                  if (text.isEmpty) {
+                    return;
+                  }
+                  // 送信ボタンを押したらメッセージを送信する
+                  await ref
+                      .read(lineNotifierProvider.notifier)
+                      .sendMessage(text);
+                  _controller.clear();
+                },
+                icon: const Icon(Icons.send)),
+            SizedBox(
+              width: 300,
+              height: 50,
+              child: TextField(
+                controller: _controller,
+                decoration: const InputDecoration(
+                  labelText: "メッセージを入力してください",
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                final text = _controller.text;
-                if (text.isEmpty) {
-                  return;
-                }
-                // 送信ボタンを押したらメッセージを送信する
-                await ref.read(lineNotifierProvider.notifier).sendMessage(text);
-                _controller.clear();
-              },
-              child: const Text("送信"),
-            )
           ],
         ),
       ),
