@@ -48,8 +48,11 @@ ios/Runner/GoogleService-Info.plist
 lib/firebase_options.dart
 ios/firebase_app_id_file.json
 
+# Linux
+linux/
+
 # windoiws
-windoiws/
+windows/
 
 # macos
 macos/
