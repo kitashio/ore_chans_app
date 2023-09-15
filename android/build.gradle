@@ -7,6 +7,11 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.3.0'
+        // START: FlutterFire Configuration
+        // Flutter3起因によるエラー
+        // 参考：https://zenn.dev/welchi/articles/flutter-3101-firebase-error
+        classpath 'com.google.gms:google-services:4.3.14'// 4.3.10 -> 4.3.14に変更しないとエラーが出る
+        // END: FlutterFire Configuration
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
