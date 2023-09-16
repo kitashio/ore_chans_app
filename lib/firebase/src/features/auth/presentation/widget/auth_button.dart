@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/auth/application/auth_notifier.dart';
+import 'package:ore_chans_app/firebase/src/features/auth/application/auth_notifier.dart';
 
 /// [ログイン用のボタンのコンポーネント]
 class AuthButton extends ConsumerWidget {
