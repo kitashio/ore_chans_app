@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 
 // Firestoreのlogを出すためのloggerを作成する
 final fireStoreLoggerProvider = Provider((ref) => Logger());

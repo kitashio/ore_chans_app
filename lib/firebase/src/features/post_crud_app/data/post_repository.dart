@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/application/post_provider.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 
 // 抽象クラスを作成。ここに追加、更新、削除のメソッドを書く。
 abstract class PostRepository {

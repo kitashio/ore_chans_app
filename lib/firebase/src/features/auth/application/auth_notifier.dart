@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/auth/data/auth_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/auth/data/auth_provider.dart';
 
 final authNotifierProvider =
     AsyncNotifierProvider<AuthNotifier, void>(AuthNotifier.new);

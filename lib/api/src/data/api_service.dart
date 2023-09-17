@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:ore_chans_app/doc_api/src/domain/users.dart';
+import 'package:ore_chans_app/api/src/domain/users.dart';
 import 'package:retrofit/http.dart';
 part 'api_service.g.dart';
 

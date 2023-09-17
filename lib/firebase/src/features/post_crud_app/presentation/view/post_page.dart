@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/auth/application/auth_notifier.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/application/post_provider.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
+import 'package:ore_chans_app/firebase/src/features/auth/application/auth_notifier.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
 
 /// [ログイン後のページ]ここで、投稿と表示をする
 class PostPage extends ConsumerWidget {

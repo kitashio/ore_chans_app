@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/data/post_repository.dart';
-import 'package:ore_chans_app/doc_firebase/src/features/post_crud_app/domain/post/post.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/data/post_repository.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 
 // PostNotifierを使えるようにするプロバイダー
 final postNotifierProvider =
