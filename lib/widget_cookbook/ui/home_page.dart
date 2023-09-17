@@ -15,61 +15,46 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            /// [コンポーネント化したボタンで画面遷移する]
-            CustomElevatedButton(
-              backgroundColor: Colors.black54,
-              foregroundColor: Colors.white,
-              width: 150,
-              height: 50,
-              onPressed: () {
-                context.to(const AspectRatioExample());
-              },
-              title: 'Aspect Ratio',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomElevatedButton(
-              backgroundColor: Colors.blueGrey,
-              foregroundColor: Colors.white,
-              width: 150,
-              height: 50,
-              onPressed: () {
-                context.to(const FractionallySizedBoxExample());
-              },
-              title: 'FractionallySizedBox',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomElevatedButton(
-              backgroundColor: Colors.blueGrey,
-              foregroundColor: Colors.white,
-              width: 150,
-              height: 50,
-              onPressed: () {
-                context.to(const FormValidation());
-              },
-              title: 'Form Validation',
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomElevatedButton(
-              backgroundColor: Colors.blueGrey,
-              foregroundColor: Colors.white,
-              width: 150,
-              height: 50,
-              onPressed: () {
-                context.to(const StepperExample());
-              },
-              title: 'Stepper',
-            ),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/photo/universe.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              /// [コンポーネント化したボタンで画面遷移する]
+              const SizedBox(
+                height: 10,
+              ),
+              CustomElevatedButton(
+                backgroundColor: Colors.black54,
+                foregroundColor: Colors.white,
+                width: 150,
+                height: 50,
+                onPressed: () {
+                  context.to(const FormValidation());
+                },
+                title: 'Form Validation',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomElevatedButton(
+                backgroundColor: Colors.black54,
+                foregroundColor: Colors.white,
+                width: 150,
+                height: 50,
+                onPressed: () {
+                  context.to(const StepperExample());
+                },
+                title: 'Stepper',
+              ),
+            ],
+          ),
         ),
       ),
     );
