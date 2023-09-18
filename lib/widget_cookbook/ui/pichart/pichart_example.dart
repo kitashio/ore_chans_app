@@ -172,7 +172,6 @@ class PichartExample extends ConsumerWidget {
                       const SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
-                          ref.refresh(pichartProvider);
                           ref.invalidate(pichartProvider);
                           if (context.mounted) {
                             Navigator.of(context).pop();
