@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'LINE Messenger API',
+      title: 'Cookbook',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.black,

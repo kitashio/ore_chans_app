@@ -171,13 +171,9 @@ class PichartExample extends ConsumerWidget {
                       pieChart,
                       const SizedBox(height: 20),
                       TextButton(
-                        onPressed: () async {
-                          await ref.refresh(pichartProvider).when(
-                              data: (data) {},
-                              error: (error, stackTrace) {
-                                throw error;
-                              },
-                              loading: () => const CircularProgressIndicator());
+                        onPressed: () {
+                          ref.refresh(pichartProvider);
+                          ref.invalidate(pichartProvider);
                           if (context.mounted) {
                             Navigator.of(context).pop();
                           }
