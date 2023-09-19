@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ore_chans_app/widget_cookbook/extension/extension.dart';
+import 'package:ore_chans_app/widget_cookbook/ui/animation/moving_image.dart';
 import 'package:ore_chans_app/widget_cookbook/ui/form_validation/view/form_validation.dart';
 import 'package:ore_chans_app/widget_cookbook/ui/pichart/pichart_example.dart';
 import 'package:ore_chans_app/widget_cookbook/ui/profile/profile_page.dart';
@@ -78,6 +79,19 @@ class HomePage extends StatelessWidget {
                   context.to(const PichartExample());
                 },
                 title: 'PichartExample',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomElevatedButton(
+                backgroundColor: Colors.black54,
+                foregroundColor: Colors.white,
+                width: 150,
+                height: 50,
+                onPressed: () {
+                  context.to(const MovingImage());
+                },
+                title: 'MovingImage',
               ),
             ],
           ),
