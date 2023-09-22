@@ -40,6 +40,13 @@ dependencies:
   json_annotation: ^4.8.1
   curved_navigation_bar: ^1.0.3
   flutter_launcher_icons: "^0.13.1"
+  flutter_native_splash: ^2.3.2
+
+# この位置にスプラッシュ画面の設定を追加
+flutter_native_splash: # 追加
+  image: "assets/splash/splash.png" # 追加
+  color: "#343232" # 画面全体の背景色を16進数で指定
+  fill: false # 画面全体を背景色で塗りつぶすかどうか指定
 
 # launcher_iconを使用するための設定
 flutter_launcher_icons:
