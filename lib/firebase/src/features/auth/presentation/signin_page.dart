@@ -21,6 +21,8 @@ class SignInPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Icon(Icons.lock_person, size: 150, color: Colors.white),
+              const SizedBox(height: 20),
               // ログインボタンのコンポーネントを呼び出す
               AuthButton(
                   text: '登録せずに利用',
