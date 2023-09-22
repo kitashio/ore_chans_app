@@ -41,6 +41,11 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter_launcher_icons: "^0.13.1"
   flutter_native_splash: ^2.3.2
+  slang: ^3.23.0 # 多言語対応のパッケージ
+  slang_flutter: ^3.23.0 # 多言語対応のパッケージ
+  # dependenciesの位置に配置する
+  flutter_localizations:
+    sdk: flutter  # sdk: flutterが必要なので追加
 
 # この位置にスプラッシュ画面の設定を追加
 flutter_native_splash: # 追加
@@ -67,6 +72,7 @@ dev_dependencies:
   logger: ^2.0.2
   pedantic_mono: ^1.24.0+1
   build_runner: ^2.4.6
+  slang_build_runner: ^3.23.0 # 多言語対応のパッケージ
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
