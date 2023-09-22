@@ -10,20 +10,25 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SignInPage'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // ログインボタンのコンポーネントを呼び出す
-            AuthButton(
-                text: '登録せずに利用',
-                onPressed: () => ref
-                    .read(authNotifierProvider.notifier)
-                    .signInAnonymously()),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/photo/universe.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // ログインボタンのコンポーネントを呼び出す
+              AuthButton(
+                  text: '登録せずに利用',
+                  onPressed: () => ref
+                      .read(authNotifierProvider.notifier)
+                      .signInAnonymously()),
+            ],
+          ),
         ),
       ),
     );
