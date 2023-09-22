@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/line_api/domain/line_message.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+
+import '../domain/line_message.dart';
 
 part 'line_api_service.g.dart';
 

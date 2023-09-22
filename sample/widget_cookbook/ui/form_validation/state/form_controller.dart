@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/form_validation/model/form_logic.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/form_validation/model/form_state.dart';
 import 'package:riverpod/riverpod.dart';
+
+import '../../../../../docs/widget_cookbook/ui/form_validation/model/form_logic.dart';
+import '../../../../../docs/widget_cookbook/ui/form_validation/model/form_state.dart';
 
 final formVieModelProvider =
     NotifierProvider<FormViewModelNotifier, FormStatus>(

@@ -1,11 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/bottom_navigation/novigaton_notifier.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/bottom_navigation/pages/add.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/bottom_navigation/pages/people.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/bottom_navigation/pages/profile.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/bottom_navigation/pages/search.dart';
+
+import '../../../../docs/widget_cookbook/ui/bottom_navigation/novigaton_notifier.dart';
+import '../../../../docs/widget_cookbook/ui/bottom_navigation/pages/add.dart';
+import '../../../../docs/widget_cookbook/ui/bottom_navigation/pages/people.dart';
+import '../../../../docs/widget_cookbook/ui/bottom_navigation/pages/profile.dart';
+import '../../../../docs/widget_cookbook/ui/bottom_navigation/pages/search.dart';
 
 class BottomNavigationPage extends ConsumerWidget {
   const BottomNavigationPage({Key? key}) : super(key: key);

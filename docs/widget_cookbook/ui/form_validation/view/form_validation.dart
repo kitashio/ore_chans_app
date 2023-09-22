@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/widget_cookbook/ui/form_validation/state/form_controller.dart';
+
+import '../../../../../sample/widget_cookbook/ui/form_validation/state/form_controller.dart';
 
 /// [入力フォームのバリデーション]
 class FormValidation extends ConsumerWidget {
