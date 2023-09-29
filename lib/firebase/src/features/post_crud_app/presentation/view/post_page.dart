@@ -4,8 +4,6 @@ import 'package:ore_chans_app/firebase/src/features/auth/application/auth_notifi
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
-import 'package:ore_chans_app/i18n/strings.g.dart';
-import 'package:ore_chans_app/utils/aleart_dialog_component.dart';
 import 'package:ore_chans_app/utils/loading_component.dart';
 
 /// [ログイン後のページ]ここで、投稿と表示をする
@@ -16,7 +14,6 @@ class PostPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bodyController = TextEditingController();
     final editController = TextEditingController();
-    final t = Translations.of(context);
     // エラー処理用のref.listen
     ref.listen<AsyncValue<void>>(
       postNotifierProvider,
@@ -43,7 +40,7 @@ class PostPage extends ConsumerWidget {
             },
           ),
         ],
-        title: Text(t.mainScreen.title),
+        title: Text('ボタン'),
       ),
       body: Center(
         child: Column(
@@ -83,7 +80,7 @@ class PostPage extends ConsumerWidget {
                   );
                   await ref.read(postNotifierProvider.notifier).addPost(post);
                 },
-                child: Text(t.mainScreen.tapMe)),
+                child: Text('投稿する')),
             Expanded(
               child: postAsyncValue.when(
                 data: (posts) {
