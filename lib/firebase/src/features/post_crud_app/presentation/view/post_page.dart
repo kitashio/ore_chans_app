@@ -5,6 +5,7 @@ import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/po
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
 import 'package:ore_chans_app/i18n/strings.g.dart';
+import 'package:ore_chans_app/utils/aleart_dialog_component.dart';
 import 'package:ore_chans_app/utils/loading_component.dart';
 
 /// [ログイン後のページ]ここで、投稿と表示をする
@@ -48,6 +49,18 @@ class PostPage extends ConsumerWidget {
         child: Column(
           children: [
             const SizedBox(height: 20),
+            // ElevatedButton(
+            //   child: Text('アラートダイアログを表示'),
+            //   onPressed: () {
+            //     showDialog<void>(
+            //         context: context,
+            //         builder: (_) {
+            //           return AlertDialogComponent('test', '中身', () {
+            //             print('call');
+            //           });
+            //         });
+            //   },
+            // ),
             SizedBox(
               width: 300,
               height: 50,

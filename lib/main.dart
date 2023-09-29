@@ -40,7 +40,7 @@ class MyApp extends ConsumerWidget {
           useMaterial3: true,
           // テーマを使ってAppBar全体にスタイルを適用する.
           appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.indigoAccent,// AppBarの背景色
+            backgroundColor: Colors.black87,// AppBarの背景色
             foregroundColor: Colors.white,// AppBarのテキストの色
             centerTitle: true,// AndroidのAppBarを真ん中に配置する
           )),
