@@ -31,16 +31,35 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.4.0
+  fl_chart: ^0.63.0
   dio: ^5.3.2 # retrofit用のhttpクライアントのdio
   firebase_auth: ^4.9.0
   firebase_core: ^2.15.1
   cloud_firestore: ^4.9.1
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
+  curved_navigation_bar: ^1.0.3
+  flutter_launcher_icons: "^0.13.1"
+  flutter_native_splash: ^2.3.2
+  # dependenciesの位置に配置する
+
+# この位置にスプラッシュ画面の設定を追加
+flutter_native_splash: # 追加
+  image: "assets/splash/splash.png" # 追加
+  color: "#343232" # 画面全体の背景色を16進数で指定
+  fill: false # 画面全体を背景色で塗りつぶすかどうか指定
+
+# launcher_iconを使用するための設定
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -72,8 +91,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - images/photo/universe.jpg
+    - images/photo/cathat.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

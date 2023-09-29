@@ -4,6 +4,7 @@ import 'package:ore_chans_app/firebase/src/features/auth/application/auth_notifi
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/presentation/state/post_notifier.dart';
+import 'package:ore_chans_app/utils/loading_component.dart';
 
 /// [ログイン後のページ]ここで、投稿と表示をする
 class PostPage extends ConsumerWidget {
@@ -39,12 +40,24 @@ class PostPage extends ConsumerWidget {
             },
           ),
         ],
-        title: const Text('Post'),
+        title: Text('ボタン'),
       ),
       body: Center(
         child: Column(
           children: [
             const SizedBox(height: 20),
+            // ElevatedButton(
+            //   child: Text('アラートダイアログを表示'),
+            //   onPressed: () {
+            //     showDialog<void>(
+            //         context: context,
+            //         builder: (_) {
+            //           return AlertDialogComponent('test', '中身', () {
+            //             print('call');
+            //           });
+            //         });
+            //   },
+            // ),
             SizedBox(
               width: 300,
               height: 50,
@@ -67,7 +80,7 @@ class PostPage extends ConsumerWidget {
                   );
                   await ref.read(postNotifierProvider.notifier).addPost(post);
                 },
-                child: const Text('投稿')),
+                child: Text('投稿する')),
             Expanded(
               child: postAsyncValue.when(
                 data: (posts) {
@@ -107,7 +120,7 @@ class PostPage extends ConsumerWidget {
                   );
                 },
                 loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                  child: LoadingComponent(),
                 ),
                 error: (error, stackTrace) => Center(
                   child: Text(error.toString()),

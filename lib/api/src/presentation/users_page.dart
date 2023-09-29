@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/doc_api/src/application/users_provider.dart';
+import 'package:ore_chans_app/api/src/application/users_provider.dart';
 
 /// [JsonPlaceholderから取得したデータを表示するページ]
 class UsersPage extends ConsumerWidget {

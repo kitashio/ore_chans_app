@@ -47,29 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAiZ0q7seftjAyDRHMNf-KS95oUWRRxwyE',
-    appId: '1:483060658537:web:6a6e602ef4a0574f658df8',
-    messagingSenderId: '483060658537',
-    projectId: 'mvvm-app-f2cf7',
-    authDomain: 'mvvm-app-f2cf7.firebaseapp.com',
-    storageBucket: 'mvvm-app-f2cf7.appspot.com',
-    measurementId: 'G-7NT5L46HNV',
+    apiKey: 'AIzaSyA4YngXknQemiSem1qZUdJuWjeJMpY1n_g',
+    appId: '1:425982312612:web:94a4f94adbd77deb672631',
+    messagingSenderId: '425982312612',
+    projectId: 'ore-chans-app',
+    authDomain: 'ore-chans-app.firebaseapp.com',
+    storageBucket: 'ore-chans-app.appspot.com',
+    measurementId: 'G-GLMVEW0QYD',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCqaLLt4CtxNHIu2tM5BA_l0pxw333gQGw',
-    appId: '1:483060658537:android:b6723a8d92433f8a658df8',
-    messagingSenderId: '483060658537',
-    projectId: 'mvvm-app-f2cf7',
-    storageBucket: 'mvvm-app-f2cf7.appspot.com',
+    apiKey: 'AIzaSyC6Y9hCvVA7DoPgkkJA5u5lSWu4MNeVVd4',
+    appId: '1:425982312612:android:005970454ecc39f0672631',
+    messagingSenderId: '425982312612',
+    projectId: 'ore-chans-app',
+    storageBucket: 'ore-chans-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDfn-dLiF2uvMra-OrRutLIxKF705dDfxs',
-    appId: '1:483060658537:ios:69c27e1aed2f2af8658df8',
-    messagingSenderId: '483060658537',
-    projectId: 'mvvm-app-f2cf7',
-    storageBucket: 'mvvm-app-f2cf7.appspot.com',
+    apiKey: 'AIzaSyB5V5TV2RFi8_O7aTWuAVsba5bSJ2Bk3wU',
+    appId: '1:425982312612:ios:5675c44356bb65a7672631',
+    messagingSenderId: '425982312612',
+    projectId: 'ore-chans-app',
+    storageBucket: 'ore-chans-app.appspot.com',
     iosBundleId: 'com.example.oreChansApp',
   );
 }
