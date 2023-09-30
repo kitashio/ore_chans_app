@@ -17,7 +17,7 @@ final authStateChangesProvider = StreamProvider((ref) {
 final uidProvider = Provider((ref) {
   final user = ref.watch(firebaseAuthProvider).currentUser?.uid;
   if (user != null) {
-    return user;
+    return 'zkwLqckvKYPS46EYXOxrRmGAV8H2';
   } else {
     throw Exception('ユーザーがサインインしていません！');
   }

@@ -42,7 +42,8 @@ class CollectionListPage extends ConsumerWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CollectionDetailPage()),
+                              builder: (context) =>
+                                  CollectionDetailPage(love[index])),
                         );
                       },
                       child: Column(

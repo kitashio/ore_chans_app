@@ -24,6 +24,7 @@ mixin _$Love {
   String get avaterImage => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get score => throw _privateConstructorUsedError;
+  List<Question> get questionList => throw _privateConstructorUsedError;
   @TimestampConverter()
   dynamic get createdAt => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -44,6 +45,7 @@ abstract class $LoveCopyWith<$Res> {
       String avaterImage,
       String name,
       int score,
+      List<Question> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -65,6 +67,7 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
     Object? avaterImage = null,
     Object? name = null,
     Object? score = null,
+    Object? questionList = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -85,6 +88,10 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as int,
+      questionList: null == questionList
+          ? _value.questionList
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<Question>,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -108,6 +115,7 @@ abstract class _$$_LoveCopyWith<$Res> implements $LoveCopyWith<$Res> {
       String avaterImage,
       String name,
       int score,
+      List<Question> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -125,6 +133,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
     Object? avaterImage = null,
     Object? name = null,
     Object? score = null,
+    Object? questionList = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
@@ -145,6 +154,10 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
           ? _value.score
           : score // ignore: cast_nullable_to_non_nullable
               as int,
+      questionList: null == questionList
+          ? _value._questionList
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<Question>,
       createdAt: freezed == createdAt ? _value.createdAt! : createdAt,
       updatedAt: freezed == updatedAt ? _value.updatedAt! : updatedAt,
     ));
@@ -159,8 +172,10 @@ class _$_Love implements _Love {
       this.avaterImage = '',
       this.name = '',
       this.score = 0,
+      final List<Question> questionList = const [],
       @TimestampConverter() this.createdAt,
-      @TimestampConverter() this.updatedAt});
+      @TimestampConverter() this.updatedAt})
+      : _questionList = questionList;
 
   factory _$_Love.fromJson(Map<String, dynamic> json) => _$$_LoveFromJson(json);
 
@@ -176,6 +191,15 @@ class _$_Love implements _Love {
   @override
   @JsonKey()
   final int score;
+  final List<Question> _questionList;
+  @override
+  @JsonKey()
+  List<Question> get questionList {
+    if (_questionList is EqualUnmodifiableListView) return _questionList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_questionList);
+  }
+
   @override
   @TimestampConverter()
   final dynamic createdAt;
@@ -185,7 +209,7 @@ class _$_Love implements _Love {
 
   @override
   String toString() {
-    return 'Love(id: $id, avaterImage: $avaterImage, name: $name, score: $score, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Love(id: $id, avaterImage: $avaterImage, name: $name, score: $score, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -198,6 +222,8 @@ class _$_Love implements _Love {
                 other.avaterImage == avaterImage) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.score, score) || other.score == score) &&
+            const DeepCollectionEquality()
+                .equals(other._questionList, _questionList) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
@@ -210,6 +236,7 @@ class _$_Love implements _Love {
       avaterImage,
       name,
       score,
+      const DeepCollectionEquality().hash(_questionList),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt));
 
@@ -233,6 +260,7 @@ abstract class _Love implements Love {
       final String avaterImage,
       final String name,
       final int score,
+      final List<Question> questionList,
       @TimestampConverter() final dynamic createdAt,
       @TimestampConverter() final dynamic updatedAt}) = _$_Love;
 
@@ -246,6 +274,8 @@ abstract class _Love implements Love {
   String get name;
   @override
   int get score;
+  @override
+  List<Question> get questionList;
   @override
   @TimestampConverter()
   dynamic get createdAt;

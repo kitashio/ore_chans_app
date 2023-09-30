@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ore_chans_app/features/post_crud_app/domain/converter/timestamp_converter.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/question/question.dart';
 
 part 'love.freezed.dart';
 part 'love.g.dart';
@@ -14,6 +15,7 @@ class Love with _$Love {
     @Default('') String avaterImage,
     @Default('') String name,
     @Default(0) int score,
+    @Default([]) List<Question> questionList,
     @TimestampConverter() createdAt,
     @TimestampConverter() updatedAt,
   }) = _Love;
