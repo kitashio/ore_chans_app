@@ -1,0 +1,4 @@
+# Cloud Functions
+node_modules/
+.firebase/
+functions/.runtimeconfig.json
