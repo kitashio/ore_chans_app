@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/firebase/src/features/auth/data/auth_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/application/user_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/domain/love/love.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/user_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/love/love.dart';
 
 // loveコレクションでメソッドで使用するWithConverter
 final loveReferenceProvider = Provider.autoDispose((ref) {

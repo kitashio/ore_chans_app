@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/data/user_repository.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/domain/user/user.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/data/user_repository.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/user/user.dart';
 
 final userNotifierProvider =
     AsyncNotifierProvider<UserNotifier, void>(UserNotifier.new);

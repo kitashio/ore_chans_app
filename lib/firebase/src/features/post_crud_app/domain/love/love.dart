@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/domain/converter/timestamp_converter.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/converter/timestamp_converter.dart';
 
 part 'love.freezed.dart';
 part 'love.g.dart';

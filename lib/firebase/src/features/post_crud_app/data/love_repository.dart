@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/application/love_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/love_app/domain/love/love.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/love_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/love/love.dart';
 
 // 恋愛テストの情報を登録と更新を行う抽象クラスのメソッド
 abstract class LoveRepository {
