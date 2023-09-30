@@ -20,6 +20,7 @@ Love _$LoveFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Love {
+  String get id => throw _privateConstructorUsedError;
   String get avaterImage => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get score => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $LoveCopyWith<$Res> {
       _$LoveCopyWithImpl<$Res, Love>;
   @useResult
   $Res call(
-      {String avaterImage,
+      {String id,
+      String avaterImage,
       String name,
       int score,
       @TimestampConverter() dynamic createdAt,
@@ -59,6 +61,7 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? avaterImage = null,
     Object? name = null,
     Object? score = null,
@@ -66,6 +69,10 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       avaterImage: null == avaterImage
           ? _value.avaterImage
           : avaterImage // ignore: cast_nullable_to_non_nullable
@@ -97,7 +104,8 @@ abstract class _$$_LoveCopyWith<$Res> implements $LoveCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String avaterImage,
+      {String id,
+      String avaterImage,
       String name,
       int score,
       @TimestampConverter() dynamic createdAt,
@@ -113,6 +121,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? avaterImage = null,
     Object? name = null,
     Object? score = null,
@@ -120,6 +129,10 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Love(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       avaterImage: null == avaterImage
           ? _value.avaterImage
           : avaterImage // ignore: cast_nullable_to_non_nullable
@@ -142,7 +155,8 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
 @JsonSerializable()
 class _$_Love implements _Love {
   const _$_Love(
-      {this.avaterImage = '',
+      {this.id = '',
+      this.avaterImage = '',
       this.name = '',
       this.score = 0,
       @TimestampConverter() this.createdAt,
@@ -150,6 +164,9 @@ class _$_Love implements _Love {
 
   factory _$_Love.fromJson(Map<String, dynamic> json) => _$$_LoveFromJson(json);
 
+  @override
+  @JsonKey()
+  final String id;
   @override
   @JsonKey()
   final String avaterImage;
@@ -168,7 +185,7 @@ class _$_Love implements _Love {
 
   @override
   String toString() {
-    return 'Love(avaterImage: $avaterImage, name: $name, score: $score, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Love(id: $id, avaterImage: $avaterImage, name: $name, score: $score, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -176,6 +193,7 @@ class _$_Love implements _Love {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Love &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.avaterImage, avaterImage) ||
                 other.avaterImage == avaterImage) &&
             (identical(other.name, name) || other.name == name) &&
@@ -188,6 +206,7 @@ class _$_Love implements _Love {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       avaterImage,
       name,
       score,
@@ -210,7 +229,8 @@ class _$_Love implements _Love {
 
 abstract class _Love implements Love {
   const factory _Love(
-      {final String avaterImage,
+      {final String id,
+      final String avaterImage,
       final String name,
       final int score,
       @TimestampConverter() final dynamic createdAt,
@@ -218,6 +238,8 @@ abstract class _Love implements Love {
 
   factory _Love.fromJson(Map<String, dynamic> json) = _$_Love.fromJson;
 
+  @override
+  String get id;
   @override
   String get avaterImage;
   @override

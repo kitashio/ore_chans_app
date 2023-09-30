@@ -9,7 +9,7 @@ part 'user.g.dart';
 @freezed
 class User with _$User {
   const factory User({
-    @Default('') String id,
+    @Default('') String id,// uidを保存する
     @Default('') String name,
     @Default(0) int score,
     @TimestampConverter() createdAt,

@@ -10,6 +10,7 @@ part 'love.g.dart';
 @freezed
 class Love with _$Love {
   const factory Love({
+    @Default('') String id,
     @Default('') String avaterImage,
     @Default('') String name,
     @Default(0) int score,

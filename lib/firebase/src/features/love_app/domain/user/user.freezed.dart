@@ -20,7 +20,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError; // uidを保存する
   String get name => throw _privateConstructorUsedError;
   int get score => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -153,6 +153,7 @@ class _$_User implements _User {
   @override
   @JsonKey()
   final String id;
+// uidを保存する
   @override
   @JsonKey()
   final String name;
@@ -219,7 +220,7 @@ abstract class _User implements User {
 
   @override
   String get id;
-  @override
+  @override // uidを保存する
   String get name;
   @override
   int get score;
