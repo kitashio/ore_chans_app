@@ -5,8 +5,7 @@ import 'package:ore_chans_app/utils/loading_component.dart';
 
 /// [ログイン用のボタンのコンポーネント]
 class AuthButton extends ConsumerWidget {
-  const AuthButton({super.key, required this.text, required this.onPressed});
-  final String text; // ボタンのタイトルを引数で渡す.
+  const AuthButton({super.key, required this.onPressed});
   final VoidCallback onPressed; // VoidCallback型を指定すると、ref.readを書くことができる.
 
   @override
@@ -23,22 +22,25 @@ class AuthButton extends ConsumerWidget {
         }
       },
     );
+
     final state = ref.watch(authNotifierProvider);
-    return SizedBox(
-      width: 200,
-      height: 60,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: Colors.black54),
-        // ログイン中はボタンを押せないようにする。ぐるぐる回るアイコンを表示する。
-        onPressed: state.isLoading ? null : onPressed,
-        child: state.isLoading
-            ? const LoadingComponent()
-            : Text(text,
-                style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white)),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFFF6388),
+        padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 16),
       ),
+      // ログイン中はボタンを押せないようにする。ぐるぐる回るアイコンを表示する。
+      onPressed: state.isLoading ? null : onPressed,
+      child: state.isLoading
+          ? const LoadingComponent()
+          : const Text(
+              'はじめる',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
     );
   }
 }
