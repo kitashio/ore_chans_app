@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/features/auth/application/auth_notifier.dart';
+import 'package:ore_chans_app/extension/async_value_extension.dart';
 import 'package:ore_chans_app/features/auth/presentation/widget/auth_button.dart';
+import 'package:ore_chans_app/features/image_generator/application/generate_image.dart';
 
 /// [ログイン画面。匿名認証でログインする]
 class SignInPage extends ConsumerWidget {
@@ -10,6 +11,15 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
+
+    ref.handleAsyncValue<String>(
+      generateImageControllerProvider,
+      complete: (context, data) async {
+        // ここで遷移させる。
+        debugPrint(data);
+      },
+    );
+
     return Scaffold(
       body: Container(
         width: size.width,
@@ -40,8 +50,9 @@ class SignInPage extends ConsumerWidget {
               const SizedBox(height: 24),
               // ログインボタンのコンポーネントを呼び出す
               AuthButton(
-                onPressed: () =>
-                    ref.read(authNotifierProvider.notifier).signInAnonymously(),
+                onPressed: () async => await ref
+                    .read(generateImageControllerProvider.notifier)
+                    .generateImage(),
               ),
             ],
           ),
