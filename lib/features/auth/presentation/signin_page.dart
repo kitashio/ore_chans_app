@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
 import 'package:ore_chans_app/features/image_generator/application/generate_image.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/start_page.dart';
+import 'package:ore_chans_app/gen/assets.gen.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 
 /// [ログイン画面。匿名認証でログインする]
@@ -42,12 +43,12 @@ class SignInPage extends ConsumerWidget {
               ),
               const SizedBox(height: 8),
               Image.asset(
-                'assets/images/love_collection_logo.png',
+                Assets.images.loveCollectionLogo.path,
                 width: 320,
               ),
               const SizedBox(height: 32),
               Image.asset(
-                'assets/images/top_girl.png',
+                Assets.images.topGirl.path,
                 width: MediaQuery.of(context).size.width,
               ),
               const SizedBox(height: 24),
