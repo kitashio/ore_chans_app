@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/converter/timestamp_converter.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/converter/timestamp_converter.dart';
 
 part 'love.freezed.dart';
 part 'love.g.dart';
@@ -18,6 +18,5 @@ class Love with _$Love {
     @TimestampConverter() updatedAt,
   }) = _Love;
 
-  factory Love.fromJson(Map<String, Object?> json)
-      => _$LoveFromJson(json);
+  factory Love.fromJson(Map<String, Object?> json) => _$LoveFromJson(json);
 }

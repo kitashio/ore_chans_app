@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/presentation/view/collection_page/collection_detail_page.dart';
+import 'package:ore_chans_app/features/post_crud_app/presentation/view/collection_page/collection_detail_page.dart';
 
 class CollectionListPage extends ConsumerWidget {
   const CollectionListPage({super.key});

@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/data/post_repository.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/post/post.dart';
+import 'package:ore_chans_app/features/post_crud_app/data/post_repository.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/post/post.dart';
 
 // PostNotifierを使えるようにするプロバイダー
 final postNotifierProvider =
@@ -22,7 +22,8 @@ class PostNotifier extends AsyncNotifier<void> {
   // 投稿データを追加
   Future<void> addPost(Post post) async {
     // 入力された値がnullだったら、ref.listenでエラーを表示する
-    if (post.body.isEmpty) {// isEmptyは値が空かどうかを判定する
+    if (post.body.isEmpty) {
+      // isEmptyは値が空かどうかを判定する
       state = const AsyncError<void>('投稿失敗: 投稿内容が入力されてません', StackTrace.empty);
     }
     // 入力された値がnullじゃなかったら、投稿する

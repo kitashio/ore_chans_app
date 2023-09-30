@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/auth/data/auth_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/user_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/user/user.dart';
+import 'package:ore_chans_app/features/auth/data/auth_provider.dart';
+import 'package:ore_chans_app/features/post_crud_app/application/user_provider.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/user/user.dart';
 
 // ユーザー情報の登録と更新を行う抽象クラスのメソッド
 abstract class UserRepository {

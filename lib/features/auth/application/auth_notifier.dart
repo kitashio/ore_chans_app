@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/auth/data/auth_provider.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/data/user_repository.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/user/user.dart';
+import 'package:ore_chans_app/features/auth/data/auth_provider.dart';
+import 'package:ore_chans_app/features/post_crud_app/data/user_repository.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/user/user.dart';
 
 final authNotifierProvider =
     AsyncNotifierProvider<AuthNotifier, void>(AuthNotifier.new);
@@ -23,7 +23,9 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = await AsyncValue.guard(() async {
       await authRef.signInAnonymously();
       // ユーザーアカウントが作成されたら、uidをuserコレクションに保存する
-      ref.read(userServiceProvider).createUser(user.copyWith(id: authRef.currentUser!.uid));
+      ref
+          .read(userServiceProvider)
+          .createUser(user.copyWith(id: authRef.currentUser!.uid));
     });
     // ログを出すプロバイダーを呼び出す
   }

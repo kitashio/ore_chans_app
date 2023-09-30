@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/converter/timestamp_converter.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/converter/timestamp_converter.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -20,12 +20,11 @@ copyWith()も自動生成してくれるので、
 @freezed
 class Post with _$Post {
   const factory Post({
-    String? id,// ドキュメントIDを指定するのに使う
-    @Default('') String body,// 投稿の本文
-    @TimestampConverter() DateTime? createdAt,// 投稿の作成日時
-    @TimestampConverter() DateTime? updatedAt,// 投稿の更新日時
+    String? id, // ドキュメントIDを指定するのに使う
+    @Default('') String body, // 投稿の本文
+    @TimestampConverter() DateTime? createdAt, // 投稿の作成日時
+    @TimestampConverter() DateTime? updatedAt, // 投稿の更新日時
   }) = _Post;
 
-  factory Post.fromJson(Map<String, dynamic> json) =>
-      _$PostFromJson(json);
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }
