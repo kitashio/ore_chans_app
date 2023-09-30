@@ -85,7 +85,7 @@ Execution failed for task ':app:mergeExtDexDebug'.
       > A failure occurred while executing com.android.build.gradle.internal.tasks.DexMergingWorkAction
 
 
-         > com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives: 
+         > com.android.builder.dexing.DexArchiveMergerException: Error while merging dex archives:
            The number of method references in a .dex file cannot exceed 64K.
 
 

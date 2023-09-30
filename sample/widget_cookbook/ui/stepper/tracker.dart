@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
+import 'package:ore_chans_app/features/post_crud_app/application/post_provider.dart';
 
 import '../../../../sample/widget_cookbook/ui/stepper/model/tracker.dart';
 
 // Firestoreのtrackerコレクションをリアルタイムに取得するProvider
 final trackStreamProvider = StreamProvider.autoDispose<List<Tracker>>((ref) {
-  final snapshot = ref.watch(fireStoreProvider).collection('tracker').snapshots();
+  final snapshot =
+      ref.watch(fireStoreProvider).collection('tracker').snapshots();
   return snapshot.map((query) => query.docs.map((doc) {
-    final data = doc.data();
-    return Tracker.fromJson(data);
-  }).toList());
+        final data = doc.data();
+        return Tracker.fromJson(data);
+      }).toList());
 });
 
 class TrackerPage extends ConsumerStatefulWidget {
@@ -47,15 +48,17 @@ class _TrackerPageState extends ConsumerState<TrackerPage> {
                 });
               }
             },
-            steps: trackersList.map((tracker) => Step(
-                  title: Column(
-                    children: [
-                      Text(tracker.location),// 現在地を表示
-                      Text(''),// 到着時刻を表示
-                    ],
-                  ),
-                  content: Container(),
-                )).toList(),
+            steps: trackersList
+                .map((tracker) => Step(
+                      title: Column(
+                        children: [
+                          Text(tracker.location), // 現在地を表示
+                          const Text(''), // 到着時刻を表示
+                        ],
+                      ),
+                      content: Container(),
+                    ))
+                .toList(),
           );
         },
         error: (_, __) => const Center(child: Text('エラーが発生しました')),
