@@ -9,8 +9,11 @@ class CollectionListPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.yellow,
-      appBar: AppBar(title: const Text('あなたのコレクション')),
+      backgroundColor: const Color(0xffFF99B1),
+      appBar: AppBar(
+        title: const Text('あなたのコレクション'),
+        backgroundColor: const Color(0xffFF99B1),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -30,7 +33,7 @@ class CollectionListPage extends ConsumerWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CollectionDetailPage()),
+                          builder: (context) => CollectionDetailPage()),
                     );
                   },
                   child: Column(
@@ -39,13 +42,18 @@ class CollectionListPage extends ConsumerWidget {
                         height: size.width / 3,
                         width: size.width / 3,
                         decoration: BoxDecoration(
-                          color: Colors.yellowAccent,
                           borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            image: NetworkImage(
+                                'https://pub-3626123a908346a7a8be8d9295f44e26.r2.dev/generations/0-3bc8fc45-660e-4feb-ab76-cee6fdd87d7d.png'),
+                          ),
                         ),
                       ),
                       Text(
-                        'らぶちゃん',
-                        style: TextStyle(fontSize: size.width / 28),
+                        'ラブちゃん',
+                        style: TextStyle(
+                            fontSize: size.width / 28,
+                            fontWeight: FontWeight.bold),
                       )
                     ],
                   ),

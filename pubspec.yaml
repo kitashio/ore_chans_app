@@ -20,6 +20,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter_launcher_icons: "^0.13.1"
   flutter_native_splash: ^2.3.2
+  smooth_page_indicator: ^1.1.0
 
 flutter_native_splash:
   image: "assets/splash/splash.png"
