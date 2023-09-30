@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+.vscode/launch.json
+.vscode/tasks.json
+
 # Symbolication related
 app.*.symbols
 
