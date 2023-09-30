@@ -39,7 +39,7 @@ exports.fetchData = functions
 
 //     --- taisei作業 ---
 
-exports.fetchData = functions
+exports.generateTextToImage = functions
     .region("asia-northeast1")
     .https.onRequest(async (_, response) => {
         // todo　一旦apikeyベタ書きしてます。。
