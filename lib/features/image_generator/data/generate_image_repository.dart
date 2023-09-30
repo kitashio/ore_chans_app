@@ -10,7 +10,8 @@ GenerateImageRepository generateImageRepository(
         GenerateImageRepositoryRef ref) =>
     GenerateImageRepository(Dio());
 
-@RestApi(baseUrl: 'https://asia-northeast1-ore-chans-app.cloudfunctions.net')
+@RestApi(
+    baseUrl: 'https://asia-northeast1-meditation-life-pj.cloudfunctions.net')
 abstract class GenerateImageRepository {
   factory GenerateImageRepository(Dio dio, {String baseUrl}) =
       _GenerateImageRepository;

@@ -13,7 +13,7 @@ class _GenerateImageRepository implements GenerateImageRepository {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://asia-northeast1-ore-chans-app.cloudfunctions.net';
+    baseUrl ??= 'https://asia-northeast1-meditation-life-pj.cloudfunctions.net';
   }
 
   final Dio _dio;

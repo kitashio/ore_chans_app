@@ -36,6 +36,8 @@ extension WidgetRefEx on WidgetRef {
             },
             error: (e, s) async {
               loadingNotifier.hide();
+              print(e);
+              print(s);
             },
             loading: loadingNotifier.show,
           );

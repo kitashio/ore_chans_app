@@ -16,7 +16,6 @@ class GenerateImageController extends AsyncNotifier<String> {
     state = await AsyncValue.guard(() async {
       final response =
           await ref.read(generateImageRepositoryProvider).generateGirlAvatar();
-
       final girlAvatar = response.toGirlAvatar();
       return girlAvatar.imagePath;
     });
