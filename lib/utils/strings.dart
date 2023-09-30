@@ -8,4 +8,7 @@ class Strings {
   // signin_page
   static const loveDeviationScoreTest = "恋愛偏差値テスト";
   static const startLabel = "はじめる";
+
+  // collection_list_page
+  static const yourCollectionLabel = "あなたのコレクション";
 }

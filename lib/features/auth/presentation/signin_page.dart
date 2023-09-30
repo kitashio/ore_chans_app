@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
+import 'package:ore_chans_app/features/collection/presentation/collection_list_page.dart';
 import 'package:ore_chans_app/features/image_generator/application/generate_image.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/start_page.dart';
 import 'package:ore_chans_app/gen/assets.gen.dart';
@@ -17,6 +18,7 @@ class SignInPage extends ConsumerWidget {
 
     ref.handleAsyncValue<String>(
       generateImageControllerProvider,
+      // TODO(taisei) 認証が完了していない場合は表示しない様に修正する。
       complete: (context, data) async => Navigator.push(
         context,
         MaterialPageRoute(
@@ -26,6 +28,26 @@ class SignInPage extends ConsumerWidget {
     );
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          IconButton(
+            color: Colors.white,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CollectionListPage(),
+              ),
+            ),
+            icon: const Icon(
+              Icons.favorite,
+              size: 30,
+            ),
+          ),
+        ],
+      ),
       body: Container(
         width: size.width,
         height: size.height,
