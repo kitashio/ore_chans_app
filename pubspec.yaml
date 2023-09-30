@@ -35,6 +35,7 @@ dependencies:
   firebase_auth: ^4.9.0
   firebase_core: ^2.15.1
   cloud_firestore: ^4.9.1
+  firebase_storage: ^11.2.6
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 
