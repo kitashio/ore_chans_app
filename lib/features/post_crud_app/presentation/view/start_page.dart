@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
+import 'package:ore_chans_app/utils/name_generator.dart';
 
 /// テスト開始画面
 class StartPage extends ConsumerWidget {
-  const StartPage({super.key});
+  const StartPage({
+    super.key,
+    required this.imagePath,
+  });
+
+  final String imagePath;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,25 +31,25 @@ class StartPage extends ConsumerWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            Image.asset(
-              'assets/images/girls.png',
+            Image.network(
+              imagePath,
               width: 320,
             ),
             const SizedBox(height: 16),
-            const Row(
+            Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'ラブちゃん',
-                  style: TextStyle(
+                  "${AnimeCharacterNameGenerator().getRandomName()}ちゃん",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(width: 12),
-                Icon(
+                const SizedBox(width: 12),
+                const Icon(
                   Icons.volume_up,
                   color: Colors.white,
                   size: 32,
