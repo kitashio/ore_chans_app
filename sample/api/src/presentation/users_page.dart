@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/api/src/application/users_provider.dart';
+
+import '../application/users_provider.dart';
 
 /// [JsonPlaceholderから取得したデータを表示するページ]
 class UsersPage extends ConsumerWidget {
@@ -18,7 +19,8 @@ class UsersPage extends ConsumerWidget {
           title: const Text('ユーザー 一覧'),
         ),
         // FutureProviderの状態によって表示を変える
-        body: users.when(// whenメソッドで状態を監視
+        body: users.when(
+          // whenメソッドで状態を監視
           data: (user) {
             // データが取得できた場合はListView.builderで表示
             return ListView.builder(

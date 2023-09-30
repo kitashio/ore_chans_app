@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:ore_chans_app/api/src/domain/users.dart';
 import 'package:retrofit/http.dart';
+
+import '../domain/users.dart';
+
 part 'api_service.g.dart';
 
 /*

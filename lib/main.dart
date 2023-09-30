@@ -23,7 +23,6 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -32,14 +31,15 @@ class MyApp extends ConsumerWidget {
           useMaterial3: true,
           // テーマを使ってAppBar全体にスタイルを適用する.
           appBarTheme: const AppBarTheme(
-            backgroundColor: Colors.black87,// AppBarの背景色
-            foregroundColor: Colors.white,// AppBarのテキストの色
-            centerTitle: true,// AndroidのAppBarを真ん中に配置する
+            backgroundColor: Colors.black87, // AppBarの背景色
+            foregroundColor: Colors.white, // AppBarのテキストの色
+            centerTitle: true, // AndroidのAppBarを真ん中に配置する
           )),
       home: const SplashScreen(),
     );
   }
 }
+
 // 認証が通っていればPostPage、通っていなければSignInPageを表示する
 class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/api/src/data/api_service.dart';
+
+import '../data/api_service.dart';
 
 // Dioのインスタンスを生成するProvider
 final apiServiceProvider = Provider((ref) => ApiService(Dio(BaseOptions(
