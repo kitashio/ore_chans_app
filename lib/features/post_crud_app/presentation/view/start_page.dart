@@ -61,15 +61,7 @@ class StartPage extends ConsumerWidget {
             const SizedBox(height: 24),
             MainButtonComponent(
               text: 'テスト開始',
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const QuestionPage(); // 遷移先の画面widgetを指定
-                    },
-                  ),
-                );
-              },
+              onPressed: () {},
             ),
           ],
         ),
