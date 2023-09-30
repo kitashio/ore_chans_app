@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/firebase/src/features/auth/data/auth_provider.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/data/user_repository.dart';
+import 'package:ore_chans_app/firebase/src/features/post_crud_app/domain/user/user.dart';
 
 final authNotifierProvider =
     AsyncNotifierProvider<AuthNotifier, void>(AuthNotifier.new);
@@ -13,15 +15,17 @@ class AuthNotifier extends AsyncNotifier<void> {
     // 戻り値がない場合は何も書かない
   }
 
-  // 匿名ログインをするメソッド
+  // 匿名ログインをするメソッド。匿名でアカウントが作られたら、uidをuserコレクションに保存する
   Future<void> signInAnonymously() async {
+    var user = const User();
     final authRef = ref.read(firebaseAuthProvider);
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await authRef.signInAnonymously();
+      // ユーザーアカウントが作成されたら、uidをuserコレクションに保存する
+      ref.read(userServiceProvider).createUser(user.copyWith(id: authRef.currentUser!.uid));
     });
     // ログを出すプロバイダーを呼び出す
-    final logger = ref.read(authLogger)..i(state.toString());
   }
 
   // ログアウトをするメソッド
@@ -31,6 +35,5 @@ class AuthNotifier extends AsyncNotifier<void> {
     state = await AsyncValue.guard(() async {
       await authRef.signOut();
     });
-    final logger = ref.read(authLogger)..i(state.toString());
   }
 }
