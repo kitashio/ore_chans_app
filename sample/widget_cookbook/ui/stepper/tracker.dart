@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/firebase/src/features/post_crud_app/application/post_provider.dart';
 
-import '../../../../docs/widget_cookbook/ui/stepper/model/tracker.dart';
+import '../../../../sample/widget_cookbook/ui/stepper/model/tracker.dart';
 
 // Firestoreのtrackerコレクションをリアルタイムに取得するProvider
 final trackStreamProvider = StreamProvider.autoDispose<List<Tracker>>((ref) {
@@ -51,6 +51,7 @@ class _TrackerPageState extends ConsumerState<TrackerPage> {
                   title: Column(
                     children: [
                       Text(tracker.location),// 現在地を表示
+                      Text(''),// 到着時刻を表示
                     ],
                   ),
                   content: Container(),
