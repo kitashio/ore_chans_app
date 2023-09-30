@@ -1,19 +1,36 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require("firebase-functions");
+const https = require("https");
 
-const {onRequest} = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+// APIサンプル
+exports.fetchData = functions.https.onRequest((_, response) => {
+    const options = {
+        hostname: "jsonplaceholder.typicode.com",
+        path: "/posts/1",
+        method: "GET",
+    };
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+    const req = https.request(options, (res) => {
+        let data = "";
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+        res.on("data", (chunk) => {
+            data += chunk;
+        });
+
+        res.on("end", () => {
+            try {
+                const parsedData = JSON.parse(data);
+                response.send(parsedData);
+            } catch (e) {
+                console.error("Error parsing JSON:", e);
+                response.status(500).send("Server Error");
+            }
+        });
+    });
+
+    req.on("error", (e) => {
+        console.error(`Problem with request: ${e.message}`);
+        response.status(500).send("Server Error");
+    });
+
+    req.end();
+});
