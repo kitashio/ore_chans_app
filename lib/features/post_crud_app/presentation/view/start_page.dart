@@ -8,7 +8,7 @@ import 'package:ore_chans_app/utils/name_generator.dart';
 class StartPage extends ConsumerWidget {
   StartPage({
     Key? key,
-    // required this.imagePath,
+    required this.imagePath,
   })  : name = AnimeCharacterNameGenerator().getRandomName(),
         tts = FlutterTts(),
         super(key: key) {
@@ -16,10 +16,9 @@ class StartPage extends ConsumerWidget {
     tts.setSpeechRate(0.2);
   }
 
-  // final String imagePath;
   final String name;
   final FlutterTts tts;
-
+  final String imagePath;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

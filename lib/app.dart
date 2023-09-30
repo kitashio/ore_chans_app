@@ -46,8 +46,7 @@ class OreChansAppState extends ConsumerState<OreChansApp> {
         ),
       ),
       home: authStateAsync.when(
-        // data: (user) => const SignInPage(),
-        data: (user) => StartPage(),
+        data: (user) => const SignInPage(),
         loading: () => const LoadingComponent(),
         error: (err, stack) => Text('Error: $err'),
       ),
