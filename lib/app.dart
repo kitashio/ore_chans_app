@@ -7,6 +7,7 @@ import 'package:ore_chans_app/features/auth/presentation/signin_page.dart';
 import 'package:ore_chans_app/gen/assets.gen.dart';
 import 'package:ore_chans_app/utils/loading_component.dart';
 import 'package:ore_chans_app/utils/loading_service.dart';
+import 'package:ore_chans_app/utils/strings.dart';
 
 class OreChansApp extends ConsumerStatefulWidget {
   const OreChansApp({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class OreChansAppState extends ConsumerState<OreChansApp> {
     final isLoading = ref.watch(loadingProvider);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'OreChansApp',
+      title: Strings.appTitle,
       navigatorKey: ref.watch(navigatorKeyProvider),
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
       theme: ThemeData(
@@ -68,7 +69,7 @@ class OreChansAppState extends ConsumerState<OreChansApp> {
                     Material(
                       color: Colors.transparent,
                       child: Text(
-                        "ロードちゅう...",
+                        Strings.loadingTitle,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30,
