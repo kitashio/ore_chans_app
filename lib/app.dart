@@ -55,10 +55,27 @@ class OreChansAppState extends ConsumerState<OreChansApp> {
             const ColoredBox(
               color: Color(0xFFFF99B1),
               child: Center(
-                child: SpinKitPumpingHeart(
-                  color: Colors.white,
-                  size: 50.0,
-                  duration: Duration(milliseconds: 500),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SpinKitPumpingHeart(
+                      color: Colors.white,
+                      size: 50.0,
+                      duration: Duration(milliseconds: 500),
+                    ),
+                    SizedBox(height: 8),
+                    Material(
+                      color: Colors.transparent,
+                      child: Text(
+                        "ロードちゅう...",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
