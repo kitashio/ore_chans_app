@@ -39,46 +39,36 @@ exports.fetchData = functions
 
 //     --- taisei作業 ---
 
-exports.generateTextToImage = functions
+exports.generateImageFromText = functions
     .region("asia-northeast1")
-    .https.onRequest(async (_, response) => {
-        // todo　一旦apikeyベタ書きしてます。。
-        const apiKey =
-            "K1TLUIujBP0oKHv5TjoN7wumAuoOjEalwStLmTDeQcdAlu3E4v2oDQabpsX5";
+    .https.onRequest(async (_, res) => {
+        const apiKey = process.env.STABLE_DIFFUSION_API_KEY;
+        const baseUrl = "https://stablediffusionapi.com/api/";
 
         const body = {
             key: apiKey,
-            prompt:
-                req.body.prompt ||
-                "ultra realistic close up portrait ((beautiful pale cyberpunk female with heavy black eyeliner))",
-            negative_prompt: req.body.negative_prompt || null,
-            width: req.body.width || "512",
-            height: req.body.height || "512",
-            samples: req.body.samples || "1",
-            num_inference_steps: req.body.num_inference_steps || "20",
-            seed: req.body.seed || null,
-            guidance_scale: req.body.guidance_scale || 7.5,
-            safety_checker: req.body.safety_checker || "yes",
-            multi_lingual: req.body.multi_lingual || "no",
-            panorama: req.body.panorama || "no",
-            self_attention: req.body.self_attention || "no",
-            upscale: req.body.upscale || "no",
-            embeddings_model: req.body.embeddings_model || null,
-            webhook: req.body.webhook || null,
-            track_id: req.body.track_id || null,
+            model_id: "meinapastel",
+            prompt: generateRandomPrompt(),
+            negative_prompt:
+                "painting, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, deformed, ugly, blurry, bad anatomy, bad proportions, extra limbs, cloned face, skinny, glitchy, double torso, extra arms, extra hands, mangled fingers, missing lips, ugly face, distorted face, extra legs, anime",
+            width: "512",
+            height: "512",
+            samples: "1",
+            num_inference_steps: "30",
+            seed: null,
+            guidance_scale: 7.5,
+            webhook: null,
+            track_id: null,
         };
 
         try {
-            const response = await fetch(
-                "https://stablediffusionapi.com/api/v3/text2img",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(body),
-                }
-            );
+            const response = await fetch(baseUrl + "v4/dreambooth", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
 
             const result = await response.json();
             res.status(200).send(result);
@@ -89,3 +79,41 @@ exports.generateTextToImage = functions
             });
         }
     });
+
+// 基本プロンプト
+const basePrompt =
+    "from above, final fantasy illustration, {{white background,white flat color,japonica}},final fantasy illustration,iridescent powder light,aqua lily,red japonica camellia,gradient flower,1girl,loli,branch,gochiusa,red illustration,monochrome, {{acrylic paint (medium)}}, clump,floating hair";
+
+// 髪色に関するプロンプトのリスト
+const hairColorPrompts = [
+    "black hair",
+    "blonde hair",
+    "brown hair",
+    "blue hair",
+    "green hair",
+    "pink hair",
+    "purple hair",
+    "red hair",
+    "silver hair",
+];
+
+// 髪の長さに関するプロンプトのリスト
+const hairLengthPrompts = [
+    "short hair",
+    "medium hair",
+    "long hair",
+    "very long hair",
+    "bob cut",
+    "ponytail",
+    "bun hair",
+];
+
+// ランダムなプロンプトを生成する関数
+function generateRandomPrompt() {
+    const randomHairColor =
+        hairColorPrompts[Math.floor(Math.random() * hairColorPrompts.length)];
+    const randomHairLength =
+        hairLengthPrompts[Math.floor(Math.random() * hairLengthPrompts.length)];
+
+    return basePrompt + ", " + randomHairColor + ", " + randomHairLength;
+}
