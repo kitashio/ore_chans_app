@@ -48,11 +48,10 @@ class SignInPage extends ConsumerWidget {
                 width: MediaQuery.of(context).size.width,
               ),
               const SizedBox(height: 24),
-              // ログインボタンのコンポーネントを呼び出す
-              AuthButton(
-                onPressed: () async => await ref
-                    .read(generateImageControllerProvider.notifier)
-                    .generateImage(),
+              MainButtonComponent(
+                text: 'はじめる',
+                onPressed: () =>
+                    ref.read(authNotifierProvider.notifier).signInAnonymously(),
               ),
             ],
           ),
