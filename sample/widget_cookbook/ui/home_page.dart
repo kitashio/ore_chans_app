@@ -1,6 +1,6 @@
 // import 'package:flutter/material.dart';
 //
-// import '../../../docs/widget_cookbook/ui/widget/custom_elevated_button.dart';
+// import '../../../sample/widget_cookbook/ui/widget/custom_elevated_button.dart';
 //
 // class HomePage extends StatelessWidget {
 //   const HomePage({Key? key}) : super(key: key);

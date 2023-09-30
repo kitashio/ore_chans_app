@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod/riverpod.dart';
 
-import '../../../../../docs/widget_cookbook/ui/form_validation/model/form_logic.dart';
-import '../../../../../docs/widget_cookbook/ui/form_validation/model/form_state.dart';
+import '../../../../../sample/widget_cookbook/ui/form_validation/model/form_logic.dart';
+import '../../../../../sample/widget_cookbook/ui/form_validation/model/form_state.dart';
 
 final formVieModelProvider =
     NotifierProvider<FormViewModelNotifier, FormStatus>(
