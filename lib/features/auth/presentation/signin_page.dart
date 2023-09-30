@@ -22,7 +22,8 @@ class SignInPage extends ConsumerWidget {
       complete: (context, data) async => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => StartPage(imagePath: data),
+          // builder: (context) => StartPage(imagePath: data),
+          builder: (context) => StartPage(),
         ),
       ),
     );
