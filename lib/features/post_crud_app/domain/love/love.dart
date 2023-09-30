@@ -19,6 +19,9 @@ class Love with _$Love {
     @TimestampConverter() createdAt,
     @TimestampConverter() updatedAt,
   }) = _Love;
+  const Love._();
 
   factory Love.fromJson(Map<String, Object?> json) => _$LoveFromJson(json);
+
+  bool get isPassed => score >= 60;
 }

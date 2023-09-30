@@ -166,7 +166,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Love implements _Love {
+class _$_Love extends _Love {
   const _$_Love(
       {this.id = '',
       this.avaterImage = '',
@@ -175,7 +175,8 @@ class _$_Love implements _Love {
       final List<Question> questionList = const [],
       @TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt})
-      : _questionList = questionList;
+      : _questionList = questionList,
+        super._();
 
   factory _$_Love.fromJson(Map<String, dynamic> json) => _$$_LoveFromJson(json);
 
@@ -254,7 +255,7 @@ class _$_Love implements _Love {
   }
 }
 
-abstract class _Love implements Love {
+abstract class _Love extends Love {
   const factory _Love(
       {final String id,
       final String avaterImage,
@@ -263,6 +264,7 @@ abstract class _Love implements Love {
       final List<Question> questionList,
       @TimestampConverter() final dynamic createdAt,
       @TimestampConverter() final dynamic updatedAt}) = _$_Love;
+  const _Love._() : super._();
 
   factory _Love.fromJson(Map<String, dynamic> json) = _$_Love.fromJson;
 

@@ -1,11 +1,35 @@
+import 'dart:math';
+
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 
-class ResultPage extends StatelessWidget {
-  const ResultPage(this.love, {super.key});
+class ResultPage extends StatefulWidget {
+  const ResultPage(this.love, {Key? key}) : super(key: key);
 
   final Love love;
+
+  @override
+  _ResultPageState createState() => _ResultPageState();
+}
+
+class _ResultPageState extends State<ResultPage> {
+  late ConfettiController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        ConfettiController(duration: const Duration(milliseconds: 500));
+    _controller.play();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +48,7 @@ class ResultPage extends StatelessWidget {
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(love.avaterImage),
+                    image: NetworkImage(widget.love.avaterImage),
                   ),
                 )),
             Container(
@@ -37,34 +61,30 @@ class ResultPage extends StatelessWidget {
               child: Column(
                 children: [
                   const Spacer(),
+                  if (widget.love.isPassed)
+                    ConfettiWidget(
+                        confettiController: _controller,
+                        numberOfParticles: 100,
+                        minBlastForce: 10,
+                        maxBlastForce: 80,
+                        blastDirection: 3 * pi / 2,
+                        blastDirectionality: BlastDirectionality.explosive),
                   const Text('あなたの偏差値は',
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                           color: Colors.black)),
                   const Spacer(),
-                  Text('${love.score}',
-                      style: const TextStyle(
+                  Text('${widget.love.score}',
+                      style: TextStyle(
                           fontSize: 70,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black)),
+                          color: widget.love.isPassed
+                              ? Colors.red
+                              : Colors.black)),
                   const Spacer(),
-                  love.score < 60
+                  widget.love.isPassed
                       ? const Column(
-                          children: [
-                            Text('残念！',
-                                style: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black)),
-                            Text('あなたには惚れませんでした⭐️',
-                                style: TextStyle(
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black))
-                          ],
-                        )
-                      : const Column(
                           children: [
                             Text('おめでとう！',
                                 style: TextStyle(
@@ -77,15 +97,29 @@ class ResultPage extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black))
                           ],
+                        )
+                      : const Column(
+                          children: [
+                            Text('残念！',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            Text('あなたには惚れませんでした⭐️',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black))
+                          ],
                         ),
                   const Spacer(),
                 ],
               ),
             ),
             const SizedBox(height: 30),
-            love.score < 60
-                ? MainButtonComponent(text: 'もう一度', onPressed: () {})
-                : MainButtonComponent(text: 'この子をGETする', onPressed: () {})
+            widget.love.isPassed
+                ? MainButtonComponent(text: 'この子をGETする', onPressed: () {})
+                : MainButtonComponent(text: 'もう一度', onPressed: () {})
           ],
         ),
       ),
