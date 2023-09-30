@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class CollectionDetailPage extends ConsumerWidget {
+class CollectionDetailPage extends StatelessWidget {
   CollectionDetailPage({super.key});
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
@@ -53,8 +52,9 @@ class CollectionDetailPage extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: const Color(0xffFF99B1),
       appBar: AppBar(
