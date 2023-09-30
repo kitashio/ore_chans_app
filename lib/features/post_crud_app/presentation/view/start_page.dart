@@ -39,10 +39,10 @@ class StartPage extends ConsumerWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
-            // Image.network(
-            //   imagePath,
-            //   width: 320,
-            // ),
+            Image.network(
+              imagePath,
+              width: 320,
+            ),
             const SizedBox(height: 16),
             Row(
               mainAxisSize: MainAxisSize.min,
