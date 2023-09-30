@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
-import 'package:ore_chans_app/features/auth/application/auth_notifier.dart';
 import 'package:ore_chans_app/features/image_generator/application/generate_image.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 
