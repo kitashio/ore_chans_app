@@ -97,7 +97,7 @@ class CollectionDetailPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                       TextSpan(
-                          text: '${love.score}',
+                          text: '${love.deviation}',
                           style: const TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

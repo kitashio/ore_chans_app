@@ -11,10 +11,9 @@ part 'love.g.dart';
 @freezed
 class Love with _$Love {
   const factory Love({
-    @Default('') String id,
     @Default('') String avaterImage,
     @Default('') String name,
-    @Default(0) int score,
+    @Default(0) int deviation,
     @Default([]) List<Question> questionList,
     @TimestampConverter() createdAt,
     @TimestampConverter() updatedAt,
@@ -23,5 +22,5 @@ class Love with _$Love {
 
   factory Love.fromJson(Map<String, Object?> json) => _$LoveFromJson(json);
 
-  bool get isPassed => score >= 60;
+  bool get isPassed => deviation >= 60;
 }

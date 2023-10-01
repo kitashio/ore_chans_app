@@ -29,7 +29,7 @@ class LoveRepository {
 
   Future<void> createLove(Love love) async {
     try {
-      getLoveReference().add(love);
+      await getLoveReference().add(love);
     } catch (e) {
       rethrow;
     }
@@ -43,7 +43,15 @@ class LoveRepository {
         .collection(_loveCollection)
         .withConverter<Love>(
           fromFirestore: (snapshot, _) => Love.fromJson(snapshot.data()!),
-          toFirestore: (love, _) => love.toJson(),
+          toFirestore: (love, _) => {
+            ...love.toJson(),
+            "questionList": love.questionList.map((question) {
+              return {
+                "question": question.question,
+                "answer": question.answer,
+              };
+            }).toList(),
+          },
         );
   }
 }
