@@ -26,7 +26,6 @@ class StartPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final girlName = AnimeCharacterNameGenerator().getRandomName();
     ref.handleAsyncValue<QuestionsInfo>(
       getMasterQuestionProvider,
       complete: (context, data) async {
@@ -103,7 +102,7 @@ class StartPage extends ConsumerWidget {
               text: 'テスト開始',
               onPressed: () async => await ref
                   .read(getMasterQuestionProvider.notifier)
-                  .getQuestions(imagePath, girlName),
+                  .getQuestions(imagePath, name),
             ),
           ],
         ),
