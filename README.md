@@ -1,10 +1,10 @@
 # 恋愛偏差値テスト「らぶこれくしょん」
 
-<img src="./assets/images/readme/0-0519424f-b51b-49e7-9804-96c443403da5.png" width=350>
-<img src="./assets/images/readme/0-1896851f-425c-4163-87c2-b1f0a3d7acfb.png" width=350>
-<img src="./assets/images/readme/0-48e14f0f-1a1d-4300-a326-a80d7dd421dc.png" width=350>
-<img src="./assets/images/readme/0-54428100-a2d3-4663-a830-4995aed46e1f.png" width=350>
-<img src="./assets/images/readme/0-64dc52ab-4cd6-4635-a058-7f131b5c7cb3.png" width=350>
+<img src="./assets/images/readme/0-0519424f-b51b-49e7-9804-96c443403da5.png" width=300>
+<img src="./assets/images/readme/0-1896851f-425c-4163-87c2-b1f0a3d7acfb.png" width=300>
+<img src="./assets/images/readme/0-48e14f0f-1a1d-4300-a326-a80d7dd421dc.png" width=300>
+<img src="./assets/images/readme/0-54428100-a2d3-4663-a830-4995aed46e1f.png" width=300>
+<img src="./assets/images/readme/0-64dc52ab-4cd6-4635-a058-7f131b5c7cb3.png" width=300>
 
 ## 概要
 「恋愛偏差値テスト」は、ユーザーの恋愛に関する回答を基に、恋愛偏差値を計算するアプリケーションです。ユーザーは性別を選択し、画像生成AIによって生成されたキャラクターからの質問に答えることでスコアを獲得します。高得点を獲得すると、キャラクターの画像をコレクションとして保存することができます。楽しみながら恋愛が学べる画期的なアプリです！
