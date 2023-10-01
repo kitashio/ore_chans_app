@@ -48,7 +48,7 @@ class _ResultPageState extends State<ResultPage> {
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(widget.love.avaterImage),
+                    image: NetworkImage(widget.love.avatarImagePath),
                   ),
                 )),
             Container(
@@ -75,7 +75,7 @@ class _ResultPageState extends State<ResultPage> {
                           fontWeight: FontWeight.bold,
                           color: Colors.black)),
                   const Spacer(),
-                  Text('${widget.love.score}',
+                  Text('${widget.love.deviation}',
                       style: TextStyle(
                           fontSize: 70,
                           fontWeight: FontWeight.bold,
