@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/master_question/master_question.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/widgets/answer_button.dart';
 
 class QuestionPage extends ConsumerWidget {
-  const QuestionPage({super.key});
+  const QuestionPage({
+    super.key,
+    required this.imagePath,
+    required this.index,
+    required this.questions,
+  });
+
+  final String imagePath;
+  final int index;
+  final List<MasterQuestion> questions;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -70,10 +80,7 @@ class QuestionPage extends ConsumerWidget {
                 const SizedBox(height: 8),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    'assets/images/girls.png',
-                    width: 280,
-                  ),
+                  child: Image.network(imagePath, width: 280),
                 ),
                 Container(
                   width: size.width,
@@ -84,10 +91,10 @@ class QuestionPage extends ConsumerWidget {
                   ),
                   child: Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         child: Text(
-                          'Q. デートの場所を選ぶときどっちが重要？',
-                          style: TextStyle(
+                          questions[index].question,
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -111,23 +118,37 @@ class QuestionPage extends ConsumerWidget {
                 ),
                 const SizedBox(height: 8),
                 AnswerButtonComponent(
-                  text: '相手の好み',
-                  onPressed: () {},
+                  text: questions[index].answers[0],
+                  onPressed: () {
+                    final nextIndex = index + 1;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuestionPage(
+                          imagePath: imagePath,
+                          index: nextIndex,
+                          questions: questions,
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 4),
                 AnswerButtonComponent(
-                  text: '相手の好み',
-                  onPressed: () {},
-                ),
-                const SizedBox(height: 4),
-                AnswerButtonComponent(
-                  text: '相手の好み',
-                  onPressed: () {},
-                ),
-                const SizedBox(height: 4),
-                AnswerButtonComponent(
-                  text: '相手の好み',
-                  onPressed: () {},
+                  text: questions[index].answers[1],
+                  onPressed: () {
+                    final nextIndex = index + 1;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuestionPage(
+                          imagePath: imagePath,
+                          index: nextIndex,
+                          questions: questions,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
