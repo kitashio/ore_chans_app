@@ -1,9 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
-
-// auth用のLogger
-final authLogger = Provider((ref) => Logger());
 
 // FirebaseAuthのインスタンスを提供するProvider
 final firebaseAuthProvider = Provider((ref) => FirebaseAuth.instance);

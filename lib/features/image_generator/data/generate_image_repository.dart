@@ -15,7 +15,6 @@ GenerateImageRepository generateImageRepository(
 abstract class GenerateImageRepository {
   factory GenerateImageRepository(Dio dio, {String baseUrl}) =
       _GenerateImageRepository;
-// TODO(taisei) 眠すぎ。気力が戻ったらリファクタ
   @GET('/generateImageFromText')
   Future<ResponseData> generateGirlAvatar();
 }
