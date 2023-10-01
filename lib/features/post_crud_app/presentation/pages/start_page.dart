@@ -34,6 +34,7 @@ class StartPage extends ConsumerWidget {
           MaterialPageRoute(
             builder: (context) => QuestionPage(
               imagePath: imagePath,
+              name: name,
               index: 0,
               questions: data.questions,
               love: data.love,

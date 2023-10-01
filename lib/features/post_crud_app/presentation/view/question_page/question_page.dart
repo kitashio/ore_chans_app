@@ -6,25 +6,28 @@ import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/domain/master_question/master_question.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/pages/result_page.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/widgets/answer_button.dart';
+import 'package:ore_chans_app/question/application/count_deviation.dart';
 import 'package:ore_chans_app/question/application/save_question.dart';
 
 class QuestionPage extends ConsumerWidget {
   const QuestionPage({
     super.key,
     required this.imagePath,
+    required this.name,
     required this.index,
     required this.questions,
     required this.love,
   });
 
   final String imagePath;
+  final String name;
   final int index;
   final List<MasterQuestion> questions;
   final Love love;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log(questions.toString());
+    log(love.toString());
     final size = MediaQuery.of(context).size;
     final isFinalQuestion = index + 1 == questions.length;
     return Scaffold(
@@ -130,14 +133,34 @@ class QuestionPage extends ConsumerWidget {
                   text: questions[index].answers[0],
                   onPressed: isFinalQuestion
                       ? () {
+                          // 偏差値計算
+                          ref.read(counterProvider.notifier).countUp(
+                                level: questions[index].level,
+                                answer: 1,
+                                correctAnswer: questions[index].correctAnswer,
+                              );
+                          final count = ref.read(counterProvider);
+                          final updatedLove = love.copyWith(
+                            avatarImagePath: imagePath,
+                            name: name,
+                            deviation: count,
+                            createdAt: DateTime.now(),
+                            updatedAt: DateTime.now(),
+                          );
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ResultPage(love),
+                              builder: (context) => ResultPage(updatedLove),
                             ),
                           );
                         }
                       : () {
+                          // 偏差値計算
+                          ref.read(counterProvider.notifier).countUp(
+                                level: questions[index].level,
+                                answer: 1,
+                                correctAnswer: questions[index].correctAnswer,
+                              );
                           // 質問回答を保存
                           final updatedLove =
                               ref.read(saveQuestionProvider.notifier).saveGirl(
@@ -150,6 +173,7 @@ class QuestionPage extends ConsumerWidget {
                             MaterialPageRoute(
                               builder: (context) => QuestionPage(
                                 imagePath: imagePath,
+                                name: name,
                                 index: index + 1,
                                 questions: questions,
                                 love: updatedLove,
@@ -163,19 +187,32 @@ class QuestionPage extends ConsumerWidget {
                   text: questions[index].answers[1],
                   onPressed: isFinalQuestion
                       ? () {
+                          // 偏差値計算
+                          ref.read(counterProvider.notifier).countUp(
+                                level: questions[index].level,
+                                answer: 2,
+                                correctAnswer: questions[index].correctAnswer,
+                              );
+                          final count = ref.read(counterProvider);
+                          final updatedLove = love.copyWith(
+                            deviation: count,
+                            createdAt: DateTime.now(),
+                            updatedAt: DateTime.now(),
+                          );
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => QuestionPage(
-                                imagePath: imagePath,
-                                index: index + 1,
-                                questions: questions,
-                                love: love,
-                              ),
+                              builder: (context) => ResultPage(updatedLove),
                             ),
                           );
                         }
                       : () {
+                          // 偏差値計算
+                          ref.read(counterProvider.notifier).countUp(
+                                level: questions[index].level,
+                                answer: 1,
+                                correctAnswer: questions[index].correctAnswer,
+                              );
                           // 質問回答を保存
                           final updatedLove =
                               ref.read(saveQuestionProvider.notifier).saveGirl(
@@ -188,6 +225,7 @@ class QuestionPage extends ConsumerWidget {
                             MaterialPageRoute(
                               builder: (context) => QuestionPage(
                                 imagePath: imagePath,
+                                name: name,
                                 index: index + 1,
                                 questions: questions,
                                 love: updatedLove,
