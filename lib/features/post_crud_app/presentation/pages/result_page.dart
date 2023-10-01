@@ -55,7 +55,7 @@ class _ResultPageState extends ConsumerState<ResultPage> {
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(widget.love.avaterImage),
+                    image: NetworkImage(widget.love.avaterImagePath),
                   ),
                 )),
             Container(

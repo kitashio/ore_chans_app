@@ -20,7 +20,7 @@ Love _$LoveFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Love {
-  String get avaterImage => throw _privateConstructorUsedError;
+  String get avaterImagePath => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get deviation => throw _privateConstructorUsedError;
   List<Question> get questionList => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $LoveCopyWith<$Res> {
       _$LoveCopyWithImpl<$Res, Love>;
   @useResult
   $Res call(
-      {String avaterImage,
+      {String avaterImagePath,
       String name,
       int deviation,
       List<Question> questionList,
@@ -61,7 +61,7 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? avaterImage = null,
+    Object? avaterImagePath = null,
     Object? name = null,
     Object? deviation = null,
     Object? questionList = null,
@@ -69,9 +69,9 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      avaterImage: null == avaterImage
-          ? _value.avaterImage
-          : avaterImage // ignore: cast_nullable_to_non_nullable
+      avaterImagePath: null == avaterImagePath
+          ? _value.avaterImagePath
+          : avaterImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -104,7 +104,7 @@ abstract class _$$_LoveCopyWith<$Res> implements $LoveCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String avaterImage,
+      {String avaterImagePath,
       String name,
       int deviation,
       List<Question> questionList,
@@ -121,7 +121,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? avaterImage = null,
+    Object? avaterImagePath = null,
     Object? name = null,
     Object? deviation = null,
     Object? questionList = null,
@@ -129,9 +129,9 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Love(
-      avaterImage: null == avaterImage
-          ? _value.avaterImage
-          : avaterImage // ignore: cast_nullable_to_non_nullable
+      avaterImagePath: null == avaterImagePath
+          ? _value.avaterImagePath
+          : avaterImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -155,7 +155,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
 @JsonSerializable()
 class _$_Love extends _Love {
   const _$_Love(
-      {this.avaterImage = '',
+      {this.avaterImagePath = '',
       this.name = '',
       this.deviation = 0,
       final List<Question> questionList = const [],
@@ -168,7 +168,7 @@ class _$_Love extends _Love {
 
   @override
   @JsonKey()
-  final String avaterImage;
+  final String avaterImagePath;
   @override
   @JsonKey()
   final String name;
@@ -193,7 +193,7 @@ class _$_Love extends _Love {
 
   @override
   String toString() {
-    return 'Love(avaterImage: $avaterImage, name: $name, deviation: $deviation, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Love(avaterImagePath: $avaterImagePath, name: $name, deviation: $deviation, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -201,8 +201,8 @@ class _$_Love extends _Love {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Love &&
-            (identical(other.avaterImage, avaterImage) ||
-                other.avaterImage == avaterImage) &&
+            (identical(other.avaterImagePath, avaterImagePath) ||
+                other.avaterImagePath == avaterImagePath) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.deviation, deviation) ||
                 other.deviation == deviation) &&
@@ -216,7 +216,7 @@ class _$_Love extends _Love {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      avaterImage,
+      avaterImagePath,
       name,
       deviation,
       const DeepCollectionEquality().hash(_questionList),
@@ -239,7 +239,7 @@ class _$_Love extends _Love {
 
 abstract class _Love extends Love {
   const factory _Love(
-      {final String avaterImage,
+      {final String avaterImagePath,
       final String name,
       final int deviation,
       final List<Question> questionList,
@@ -250,7 +250,7 @@ abstract class _Love extends Love {
   factory _Love.fromJson(Map<String, dynamic> json) = _$_Love.fromJson;
 
   @override
-  String get avaterImage;
+  String get avaterImagePath;
   @override
   String get name;
   @override

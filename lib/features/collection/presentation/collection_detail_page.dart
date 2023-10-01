@@ -75,7 +75,7 @@ class CollectionDetailPage extends StatelessWidget {
                     color: Colors.black12,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: NetworkImage(love.avaterImage),
+                      image: NetworkImage(love.avaterImagePath),
                     ),
                   )),
             ),

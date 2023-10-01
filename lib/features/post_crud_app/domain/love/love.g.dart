@@ -7,7 +7,7 @@ part of 'love.dart';
 // **************************************************************************
 
 _$_Love _$$_LoveFromJson(Map<String, dynamic> json) => _$_Love(
-      avaterImage: json['avaterImage'] as String? ?? '',
+      avaterImagePath: json['avaterImagePath'] as String? ?? '',
       name: json['name'] as String? ?? '',
       deviation: json['deviation'] as int? ?? 0,
       questionList: (json['questionList'] as List<dynamic>?)
@@ -19,7 +19,7 @@ _$_Love _$$_LoveFromJson(Map<String, dynamic> json) => _$_Love(
     );
 
 Map<String, dynamic> _$$_LoveToJson(_$_Love instance) => <String, dynamic>{
-      'avaterImage': instance.avaterImage,
+      'avaterImagePath': instance.avaterImagePath,
       'name': instance.name,
       'deviation': instance.deviation,
       'questionList': instance.questionList,

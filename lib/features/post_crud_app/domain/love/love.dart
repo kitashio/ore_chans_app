@@ -11,7 +11,7 @@ part 'love.g.dart';
 @freezed
 class Love with _$Love {
   const factory Love({
-    @Default('') String avaterImage,
+    @Default('') String avaterImagePath,
     @Default('') String name,
     @Default(0) int deviation,
     @Default([]) List<Question> questionList,
