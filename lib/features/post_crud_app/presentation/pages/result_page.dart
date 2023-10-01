@@ -2,10 +2,13 @@ import 'dart:math';
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ore_chans_app/features/auth/presentation/signin_page.dart';
+import 'package:ore_chans_app/features/collection/data/love_repository.dart';
 import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 
-class ResultPage extends StatefulWidget {
+class ResultPage extends ConsumerStatefulWidget {
   const ResultPage(this.love, {Key? key}) : super(key: key);
 
   final Love love;
@@ -14,7 +17,7 @@ class ResultPage extends StatefulWidget {
   _ResultPageState createState() => _ResultPageState();
 }
 
-class _ResultPageState extends State<ResultPage> {
+class _ResultPageState extends ConsumerState<ResultPage> {
   late ConfettiController _controller;
 
   @override
@@ -23,6 +26,10 @@ class _ResultPageState extends State<ResultPage> {
     _controller =
         ConfettiController(duration: const Duration(milliseconds: 500));
     _controller.play();
+
+    if (widget.love.isPassed) {
+      ref.read(loveRepositoryProvider).createLove(widget.love);
+    }
   }
 
   @override
@@ -48,7 +55,7 @@ class _ResultPageState extends State<ResultPage> {
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: NetworkImage(widget.love.avatarImagePath),
+                    image: NetworkImage(widget.love.avaterImagePath),
                   ),
                 )),
             Container(
@@ -117,9 +124,15 @@ class _ResultPageState extends State<ResultPage> {
               ),
             ),
             const SizedBox(height: 30),
-            widget.love.isPassed
-                ? MainButtonComponent(text: 'この子をGETする', onPressed: () {})
-                : MainButtonComponent(text: 'もう一度', onPressed: () {})
+            MainButtonComponent(
+                text: 'タイトルへ戻る',
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignInPage()),
+                      (route) => false);
+                })
           ],
         ),
       ),

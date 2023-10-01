@@ -20,11 +20,10 @@ Love _$LoveFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Love {
-  String get avatarImagePath => throw _privateConstructorUsedError;
+  String get avaterImagePath => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get deviation => throw _privateConstructorUsedError;
-  List<Map<String, String>> get questionList =>
-      throw _privateConstructorUsedError;
+  List<Question> get questionList => throw _privateConstructorUsedError;
   @TimestampConverter()
   dynamic get createdAt => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -41,10 +40,10 @@ abstract class $LoveCopyWith<$Res> {
       _$LoveCopyWithImpl<$Res, Love>;
   @useResult
   $Res call(
-      {String avatarImagePath,
+      {String avaterImagePath,
       String name,
       int deviation,
-      List<Map<String, String>> questionList,
+      List<Question> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -62,7 +61,7 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? avatarImagePath = null,
+    Object? avaterImagePath = null,
     Object? name = null,
     Object? deviation = null,
     Object? questionList = null,
@@ -70,9 +69,9 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      avatarImagePath: null == avatarImagePath
-          ? _value.avatarImagePath
-          : avatarImagePath // ignore: cast_nullable_to_non_nullable
+      avaterImagePath: null == avaterImagePath
+          ? _value.avaterImagePath
+          : avaterImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -105,10 +104,10 @@ abstract class _$$_LoveCopyWith<$Res> implements $LoveCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String avatarImagePath,
+      {String avaterImagePath,
       String name,
       int deviation,
-      List<Map<String, String>> questionList,
+      List<Question> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -122,7 +121,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? avatarImagePath = null,
+    Object? avaterImagePath = null,
     Object? name = null,
     Object? deviation = null,
     Object? questionList = null,
@@ -130,9 +129,9 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Love(
-      avatarImagePath: null == avatarImagePath
-          ? _value.avatarImagePath
-          : avatarImagePath // ignore: cast_nullable_to_non_nullable
+      avaterImagePath: null == avaterImagePath
+          ? _value.avaterImagePath
+          : avaterImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
@@ -156,10 +155,10 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
 @JsonSerializable()
 class _$_Love extends _Love {
   const _$_Love(
-      {this.avatarImagePath = '',
+      {this.avaterImagePath = '',
       this.name = '',
       this.deviation = 0,
-      final List<Map<String, String>> questionList = const [],
+      final List<Question> questionList = const [],
       @TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt})
       : _questionList = questionList,
@@ -169,14 +168,14 @@ class _$_Love extends _Love {
 
   @override
   @JsonKey()
-  final String avatarImagePath;
+  final String avaterImagePath;
   @override
   @JsonKey()
   final String name;
   @override
   @JsonKey()
   final int deviation;
-  final List<Map<String, String>> _questionList;
+  final List<Question> _questionList;
   @override
   @JsonKey()
   List<Map<String, String>> get questionList {
@@ -194,7 +193,7 @@ class _$_Love extends _Love {
 
   @override
   String toString() {
-    return 'Love(avatarImagePath: $avatarImagePath, name: $name, deviation: $deviation, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Love(avaterImagePath: $avaterImagePath, name: $name, deviation: $deviation, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -202,8 +201,8 @@ class _$_Love extends _Love {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Love &&
-            (identical(other.avatarImagePath, avatarImagePath) ||
-                other.avatarImagePath == avatarImagePath) &&
+            (identical(other.avaterImagePath, avaterImagePath) ||
+                other.avaterImagePath == avaterImagePath) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.deviation, deviation) ||
                 other.deviation == deviation) &&
@@ -217,7 +216,7 @@ class _$_Love extends _Love {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      avatarImagePath,
+      avaterImagePath,
       name,
       deviation,
       const DeepCollectionEquality().hash(_questionList),
@@ -240,10 +239,10 @@ class _$_Love extends _Love {
 
 abstract class _Love extends Love {
   const factory _Love(
-      {final String avatarImagePath,
+      {final String avaterImagePath,
       final String name,
       final int deviation,
-      final List<Map<String, String>> questionList,
+      final List<Question> questionList,
       @TimestampConverter() final dynamic createdAt,
       @TimestampConverter() final dynamic updatedAt}) = _$_Love;
   const _Love._() : super._();
@@ -251,7 +250,7 @@ abstract class _Love extends Love {
   factory _Love.fromJson(Map<String, dynamic> json) = _$_Love.fromJson;
 
   @override
-  String get avatarImagePath;
+  String get avaterImagePath;
   @override
   String get name;
   @override
