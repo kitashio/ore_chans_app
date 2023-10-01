@@ -28,7 +28,7 @@ class CollectionDetailPage extends StatelessWidget {
                       child: Text('Q.',
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold))),
-                  Text(love.questionList[index].question,
+                  Text(love.questionList[index].keys.first,
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
@@ -38,8 +38,8 @@ class CollectionDetailPage extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
-                              color: Colors.redAccent))),
-                  Text(love.questionList[index].answer,
+                              color: Color.fromRGBO(255, 82, 82, 1)))),
+                  Text(love.questionList[index].values.first,
                       style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class CollectionDetailPage extends StatelessWidget {
                     color: Colors.black12,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: NetworkImage(love.avaterImage),
+                      image: NetworkImage(love.avatarImagePath),
                     ),
                   )),
             ),
@@ -97,7 +97,7 @@ class CollectionDetailPage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
                       TextSpan(
-                          text: '${love.score}',
+                          text: '${love.deviation}',
                           style: const TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

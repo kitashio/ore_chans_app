@@ -20,8 +20,8 @@ MasterQuestion _$MasterQuestionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MasterQuestion {
-  String get id => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
+  int get level => throw _privateConstructorUsedError;
   @JsonKey(name: 'correct_answer')
   int get correctAnswer => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
@@ -39,8 +39,8 @@ abstract class $MasterQuestionCopyWith<$Res> {
       _$MasterQuestionCopyWithImpl<$Res, MasterQuestion>;
   @useResult
   $Res call(
-      {String id,
-      String question,
+      {String question,
+      int level,
       @JsonKey(name: 'correct_answer') int correctAnswer,
       List<String> answers});
 }
@@ -58,20 +58,20 @@ class _$MasterQuestionCopyWithImpl<$Res, $Val extends MasterQuestion>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? question = null,
+    Object? level = null,
     Object? correctAnswer = null,
     Object? answers = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
               as String,
+      level: null == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as int,
       correctAnswer: null == correctAnswer
           ? _value.correctAnswer
           : correctAnswer // ignore: cast_nullable_to_non_nullable
@@ -93,8 +93,8 @@ abstract class _$$_MasterQuestionCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String question,
+      {String question,
+      int level,
       @JsonKey(name: 'correct_answer') int correctAnswer,
       List<String> answers});
 }
@@ -110,20 +110,20 @@ class __$$_MasterQuestionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? question = null,
+    Object? level = null,
     Object? correctAnswer = null,
     Object? answers = null,
   }) {
     return _then(_$_MasterQuestion(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
               as String,
+      level: null == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as int,
       correctAnswer: null == correctAnswer
           ? _value.correctAnswer
           : correctAnswer // ignore: cast_nullable_to_non_nullable
@@ -140,8 +140,8 @@ class __$$_MasterQuestionCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MasterQuestion implements _MasterQuestion {
   const _$_MasterQuestion(
-      {required this.id,
-      required this.question,
+      {required this.question,
+      required this.level,
       @JsonKey(name: 'correct_answer') required this.correctAnswer,
       required final List<String> answers})
       : _answers = answers;
@@ -150,9 +150,9 @@ class _$_MasterQuestion implements _MasterQuestion {
       _$$_MasterQuestionFromJson(json);
 
   @override
-  final String id;
-  @override
   final String question;
+  @override
+  final int level;
   @override
   @JsonKey(name: 'correct_answer')
   final int correctAnswer;
@@ -166,7 +166,7 @@ class _$_MasterQuestion implements _MasterQuestion {
 
   @override
   String toString() {
-    return 'MasterQuestion(id: $id, question: $question, correctAnswer: $correctAnswer, answers: $answers)';
+    return 'MasterQuestion(question: $question, level: $level, correctAnswer: $correctAnswer, answers: $answers)';
   }
 
   @override
@@ -174,9 +174,9 @@ class _$_MasterQuestion implements _MasterQuestion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MasterQuestion &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.question, question) ||
                 other.question == question) &&
+            (identical(other.level, level) || other.level == level) &&
             (identical(other.correctAnswer, correctAnswer) ||
                 other.correctAnswer == correctAnswer) &&
             const DeepCollectionEquality().equals(other._answers, _answers));
@@ -184,7 +184,7 @@ class _$_MasterQuestion implements _MasterQuestion {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, question, correctAnswer,
+  int get hashCode => Object.hash(runtimeType, question, level, correctAnswer,
       const DeepCollectionEquality().hash(_answers));
 
   @JsonKey(ignore: true)
@@ -203,8 +203,8 @@ class _$_MasterQuestion implements _MasterQuestion {
 
 abstract class _MasterQuestion implements MasterQuestion {
   const factory _MasterQuestion(
-      {required final String id,
-      required final String question,
+      {required final String question,
+      required final int level,
       @JsonKey(name: 'correct_answer') required final int correctAnswer,
       required final List<String> answers}) = _$_MasterQuestion;
 
@@ -212,9 +212,9 @@ abstract class _MasterQuestion implements MasterQuestion {
       _$_MasterQuestion.fromJson;
 
   @override
-  String get id;
-  @override
   String get question;
+  @override
+  int get level;
   @override
   @JsonKey(name: 'correct_answer')
   int get correctAnswer;

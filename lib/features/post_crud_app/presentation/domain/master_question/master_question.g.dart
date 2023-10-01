@@ -8,8 +8,8 @@ part of 'master_question.dart';
 
 _$_MasterQuestion _$$_MasterQuestionFromJson(Map<String, dynamic> json) =>
     _$_MasterQuestion(
-      id: json['id'] as String,
       question: json['question'] as String,
+      level: json['level'] as int,
       correctAnswer: json['correct_answer'] as int,
       answers:
           (json['answers'] as List<dynamic>).map((e) => e as String).toList(),
@@ -17,8 +17,8 @@ _$_MasterQuestion _$$_MasterQuestionFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_MasterQuestionToJson(_$_MasterQuestion instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'question': instance.question,
+      'level': instance.level,
       'correct_answer': instance.correctAnswer,
       'answers': instance.answers,
     };

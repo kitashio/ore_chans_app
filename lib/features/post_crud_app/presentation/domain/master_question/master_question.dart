@@ -9,8 +9,8 @@ part 'master_question.g.dart';
 @freezed
 class MasterQuestion with _$MasterQuestion {
   const factory MasterQuestion({
-    required String id,
     required String question,
+    required int level,
     @JsonKey(name: 'correct_answer') required int correctAnswer,
     required List<String> answers,
   }) = _MasterQuestion;

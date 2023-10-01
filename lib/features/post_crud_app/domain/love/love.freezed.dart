@@ -20,11 +20,11 @@ Love _$LoveFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Love {
-  String get id => throw _privateConstructorUsedError;
-  String get avaterImage => throw _privateConstructorUsedError;
+  String get avatarImagePath => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get score => throw _privateConstructorUsedError;
-  List<Question> get questionList => throw _privateConstructorUsedError;
+  int get deviation => throw _privateConstructorUsedError;
+  List<Map<String, String>> get questionList =>
+      throw _privateConstructorUsedError;
   @TimestampConverter()
   dynamic get createdAt => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -41,11 +41,10 @@ abstract class $LoveCopyWith<$Res> {
       _$LoveCopyWithImpl<$Res, Love>;
   @useResult
   $Res call(
-      {String id,
-      String avaterImage,
+      {String avatarImagePath,
       String name,
-      int score,
-      List<Question> questionList,
+      int deviation,
+      List<Map<String, String>> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -63,35 +62,30 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? avaterImage = null,
+    Object? avatarImagePath = null,
     Object? name = null,
-    Object? score = null,
+    Object? deviation = null,
     Object? questionList = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      avaterImage: null == avaterImage
-          ? _value.avaterImage
-          : avaterImage // ignore: cast_nullable_to_non_nullable
+      avatarImagePath: null == avatarImagePath
+          ? _value.avatarImagePath
+          : avatarImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
+      deviation: null == deviation
+          ? _value.deviation
+          : deviation // ignore: cast_nullable_to_non_nullable
               as int,
       questionList: null == questionList
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
-              as List<Question>,
+              as List<Map<String, String>>,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -111,11 +105,10 @@ abstract class _$$_LoveCopyWith<$Res> implements $LoveCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String avaterImage,
+      {String avatarImagePath,
       String name,
-      int score,
-      List<Question> questionList,
+      int deviation,
+      List<Map<String, String>> questionList,
       @TimestampConverter() dynamic createdAt,
       @TimestampConverter() dynamic updatedAt});
 }
@@ -129,35 +122,30 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? avaterImage = null,
+    Object? avatarImagePath = null,
     Object? name = null,
-    Object? score = null,
+    Object? deviation = null,
     Object? questionList = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Love(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      avaterImage: null == avaterImage
-          ? _value.avaterImage
-          : avaterImage // ignore: cast_nullable_to_non_nullable
+      avatarImagePath: null == avatarImagePath
+          ? _value.avatarImagePath
+          : avatarImagePath // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      score: null == score
-          ? _value.score
-          : score // ignore: cast_nullable_to_non_nullable
+      deviation: null == deviation
+          ? _value.deviation
+          : deviation // ignore: cast_nullable_to_non_nullable
               as int,
       questionList: null == questionList
           ? _value._questionList
           : questionList // ignore: cast_nullable_to_non_nullable
-              as List<Question>,
+              as List<Map<String, String>>,
       createdAt: freezed == createdAt ? _value.createdAt! : createdAt,
       updatedAt: freezed == updatedAt ? _value.updatedAt! : updatedAt,
     ));
@@ -168,11 +156,10 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
 @JsonSerializable()
 class _$_Love extends _Love {
   const _$_Love(
-      {this.id = '',
-      this.avaterImage = '',
+      {this.avatarImagePath = '',
       this.name = '',
-      this.score = 0,
-      final List<Question> questionList = const [],
+      this.deviation = 0,
+      final List<Map<String, String>> questionList = const [],
       @TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt})
       : _questionList = questionList,
@@ -182,20 +169,17 @@ class _$_Love extends _Love {
 
   @override
   @JsonKey()
-  final String id;
-  @override
-  @JsonKey()
-  final String avaterImage;
+  final String avatarImagePath;
   @override
   @JsonKey()
   final String name;
   @override
   @JsonKey()
-  final int score;
-  final List<Question> _questionList;
+  final int deviation;
+  final List<Map<String, String>> _questionList;
   @override
   @JsonKey()
-  List<Question> get questionList {
+  List<Map<String, String>> get questionList {
     if (_questionList is EqualUnmodifiableListView) return _questionList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questionList);
@@ -210,7 +194,7 @@ class _$_Love extends _Love {
 
   @override
   String toString() {
-    return 'Love(id: $id, avaterImage: $avaterImage, name: $name, score: $score, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'Love(avatarImagePath: $avatarImagePath, name: $name, deviation: $deviation, questionList: $questionList, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -218,11 +202,11 @@ class _$_Love extends _Love {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Love &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.avaterImage, avaterImage) ||
-                other.avaterImage == avaterImage) &&
+            (identical(other.avatarImagePath, avatarImagePath) ||
+                other.avatarImagePath == avatarImagePath) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.score, score) || other.score == score) &&
+            (identical(other.deviation, deviation) ||
+                other.deviation == deviation) &&
             const DeepCollectionEquality()
                 .equals(other._questionList, _questionList) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -233,10 +217,9 @@ class _$_Love extends _Love {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      avaterImage,
+      avatarImagePath,
       name,
-      score,
+      deviation,
       const DeepCollectionEquality().hash(_questionList),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt));
@@ -257,11 +240,10 @@ class _$_Love extends _Love {
 
 abstract class _Love extends Love {
   const factory _Love(
-      {final String id,
-      final String avaterImage,
+      {final String avatarImagePath,
       final String name,
-      final int score,
-      final List<Question> questionList,
+      final int deviation,
+      final List<Map<String, String>> questionList,
       @TimestampConverter() final dynamic createdAt,
       @TimestampConverter() final dynamic updatedAt}) = _$_Love;
   const _Love._() : super._();
@@ -269,15 +251,13 @@ abstract class _Love extends Love {
   factory _Love.fromJson(Map<String, dynamic> json) = _$_Love.fromJson;
 
   @override
-  String get id;
-  @override
-  String get avaterImage;
+  String get avatarImagePath;
   @override
   String get name;
   @override
-  int get score;
+  int get deviation;
   @override
-  List<Question> get questionList;
+  List<Map<String, String>> get questionList;
   @override
   @TimestampConverter()
   dynamic get createdAt;

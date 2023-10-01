@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/master_question/master_question.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
+import 'package:ore_chans_app/features/post_crud_app/presentation/domain/master_question/master_question.dart';
+import 'package:ore_chans_app/features/post_crud_app/presentation/pages/result_page.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/widgets/answer_button.dart';
+import 'package:ore_chans_app/question/application/save_question.dart';
 
 class QuestionPage extends ConsumerWidget {
   const QuestionPage({
@@ -9,15 +14,19 @@ class QuestionPage extends ConsumerWidget {
     required this.imagePath,
     required this.index,
     required this.questions,
+    required this.love,
   });
 
   final String imagePath;
   final int index;
   final List<MasterQuestion> questions;
+  final Love love;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log(questions.toString());
     final size = MediaQuery.of(context).size;
+    final isFinalQuestion = index + 1 == questions.length;
     return Scaffold(
       backgroundColor: const Color(0xFFFF99B1),
       body: SafeArea(
@@ -37,10 +46,10 @@ class QuestionPage extends ConsumerWidget {
                         color: Color(0xFFFF6388),
                         shape: BoxShape.circle,
                       ),
-                      child: const Center(
+                      child: Center(
                         child: Text(
-                          '1',
-                          style: TextStyle(
+                          (index + 1).toString(),
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -60,7 +69,7 @@ class QuestionPage extends ConsumerWidget {
                         child: Row(
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: index + 1,
                               child: Container(
                                 decoration: const BoxDecoration(
                                   color: Color(0xFFFF6388),
@@ -68,13 +77,13 @@ class QuestionPage extends ConsumerWidget {
                               ),
                             ),
                             Expanded(
-                              flex: 10 - 2,
+                              flex: 10 - (index + 1),
                               child: Container(color: Colors.white),
                             ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -119,36 +128,73 @@ class QuestionPage extends ConsumerWidget {
                 const SizedBox(height: 8),
                 AnswerButtonComponent(
                   text: questions[index].answers[0],
-                  onPressed: () {
-                    final nextIndex = index + 1;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => QuestionPage(
-                          imagePath: imagePath,
-                          index: nextIndex,
-                          questions: questions,
-                        ),
-                      ),
-                    );
-                  },
+                  onPressed: isFinalQuestion
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ResultPage(love),
+                            ),
+                          );
+                        }
+                      : () {
+                          // 質問回答を保存
+                          final updatedLove =
+                              ref.read(saveQuestionProvider.notifier).saveGirl(
+                                    love: love,
+                                    question: questions[index].question,
+                                    answer: questions[index].answers[0],
+                                  );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionPage(
+                                imagePath: imagePath,
+                                index: index + 1,
+                                questions: questions,
+                                love: updatedLove,
+                              ),
+                            ),
+                          );
+                        },
                 ),
                 const SizedBox(height: 4),
                 AnswerButtonComponent(
                   text: questions[index].answers[1],
-                  onPressed: () {
-                    final nextIndex = index + 1;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => QuestionPage(
-                          imagePath: imagePath,
-                          index: nextIndex,
-                          questions: questions,
-                        ),
-                      ),
-                    );
-                  },
+                  onPressed: isFinalQuestion
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionPage(
+                                imagePath: imagePath,
+                                index: index + 1,
+                                questions: questions,
+                                love: love,
+                              ),
+                            ),
+                          );
+                        }
+                      : () {
+                          // 質問回答を保存
+                          final updatedLove =
+                              ref.read(saveQuestionProvider.notifier).saveGirl(
+                                    love: love,
+                                    question: questions[index].question,
+                                    answer: questions[index].answers[0],
+                                  );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionPage(
+                                imagePath: imagePath,
+                                index: index + 1,
+                                questions: questions,
+                                love: updatedLove,
+                              ),
+                            ),
+                          );
+                        },
                 ),
               ],
             ),
