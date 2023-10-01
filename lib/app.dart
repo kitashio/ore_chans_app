@@ -4,7 +4,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
 import 'package:ore_chans_app/features/auth/data/auth_provider.dart';
 import 'package:ore_chans_app/features/auth/presentation/signin_page.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/view/start_page.dart';
 import 'package:ore_chans_app/gen/assets.gen.dart';
 import 'package:ore_chans_app/utils/loading_component.dart';
 import 'package:ore_chans_app/utils/loading_service.dart';
