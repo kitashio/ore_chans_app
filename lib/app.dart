@@ -38,11 +38,6 @@ class OreChansAppState extends ConsumerState<OreChansApp> {
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
       theme: ThemeData(
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black87,
-          foregroundColor: Colors.white,
-          centerTitle: true,
-        ),
       ),
       home: authStateAsync.when(
         data: (user) => const SignInPage(),
