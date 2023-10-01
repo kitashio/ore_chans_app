@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ore_chans_app/extension/async_value_extension.dart';
+import 'package:ore_chans_app/features/post_crud_app/presentation/domain/questions_info/questions_info.dart';
+import 'package:ore_chans_app/features/post_crud_app/presentation/view/question_page/question_page.dart';
+import 'package:ore_chans_app/question/application/get_questions.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 import 'package:ore_chans_app/utils/name_generator.dart';
@@ -22,6 +26,23 @@ class StartPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.handleAsyncValue<QuestionsInfo>(
+      getMasterQuestionProvider,
+      complete: (context, data) async {
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => QuestionPage(
+              imagePath: imagePath,
+              index: 0,
+              questions: data.questions,
+              love: data.love,
+            ),
+          ),
+        );
+      },
+    );
+
     return Scaffold(
       backgroundColor: const Color(0xFFFF99B1),
       body: SizedBox(
@@ -79,7 +100,9 @@ class StartPage extends ConsumerWidget {
             const SizedBox(height: 24),
             MainButtonComponent(
               text: 'テスト開始',
-              onPressed: () {},
+              onPressed: () async => await ref
+                  .read(getMasterQuestionProvider.notifier)
+                  .getQuestions(imagePath, name),
             ),
           ],
         ),
