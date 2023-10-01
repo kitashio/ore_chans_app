@@ -195,6 +195,8 @@ class QuestionPage extends ConsumerWidget {
                               );
                           final count = ref.read(counterProvider);
                           final updatedLove = love.copyWith(
+                            avaterImagePath: imagePath,
+                            name: name,
                             deviation: count,
                             createdAt: DateTime.now(),
                             updatedAt: DateTime.now(),
