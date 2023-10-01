@@ -84,7 +84,7 @@ class _$LoveCopyWithImpl<$Res, $Val extends Love>
       questionList: null == questionList
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<Question>,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ class __$$_LoveCopyWithImpl<$Res> extends _$LoveCopyWithImpl<$Res, _$_Love>
       questionList: null == questionList
           ? _value._questionList
           : questionList // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, String>>,
+              as List<Question>,
       createdAt: freezed == createdAt ? _value.createdAt! : createdAt,
       updatedAt: freezed == updatedAt ? _value.updatedAt! : updatedAt,
     ));
@@ -178,7 +178,7 @@ class _$_Love extends _Love {
   final List<Question> _questionList;
   @override
   @JsonKey()
-  List<Map<String, String>> get questionList {
+  List<Question> get questionList {
     if (_questionList is EqualUnmodifiableListView) return _questionList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questionList);
@@ -256,7 +256,7 @@ abstract class _Love extends Love {
   @override
   int get deviation;
   @override
-  List<Map<String, String>> get questionList;
+  List<Question> get questionList;
   @override
   @TimestampConverter()
   dynamic get createdAt;

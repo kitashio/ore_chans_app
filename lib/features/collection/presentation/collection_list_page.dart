@@ -58,7 +58,7 @@ class CollectionListPage extends ConsumerWidget {
                                 borderRadius: BorderRadius.circular(10),
                                 image: DecorationImage(
                                   image: NetworkImage(
-                                    loves[index].avatarImagePath,
+                                    loves[index].avaterImagePath,
                                   ),
                                 ),
                               ),

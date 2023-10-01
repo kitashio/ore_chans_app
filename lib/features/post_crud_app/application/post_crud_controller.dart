@@ -15,7 +15,7 @@ class ConvertQuestionToLoveController extends Notifier<Love> {
     required String name,
   }) {
     return Love(
-      avatarImagePath: imagePath,
+      avaterImagePath: imagePath,
       name: name,
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),

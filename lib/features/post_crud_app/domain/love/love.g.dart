@@ -11,7 +11,7 @@ _$_Love _$$_LoveFromJson(Map<String, dynamic> json) => _$_Love(
       name: json['name'] as String? ?? '',
       deviation: json['deviation'] as int? ?? 0,
       questionList: (json['questionList'] as List<dynamic>?)
-              ?.map((e) => Map<String, String>.from(e as Map))
+              ?.map((e) => Question.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       createdAt: json['createdAt'],
