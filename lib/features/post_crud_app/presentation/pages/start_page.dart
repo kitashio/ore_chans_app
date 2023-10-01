@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/domain/master_question/master_question.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/domain/questions_info/questions_info.dart';
 import 'package:ore_chans_app/features/post_crud_app/presentation/view/question_page/question_page.dart';
 import 'package:ore_chans_app/question/application/get_questions.dart';
