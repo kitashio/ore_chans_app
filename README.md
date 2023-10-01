@@ -36,6 +36,10 @@
 ### その他の技術
 - Stable Diffusion: 画像生成API。
 
+### アプリ画面
+
+<img src="./assets/images/readme/Simulator1.png" width=300> <img src="./assets/images/readme/Simulator2.png" width=300> <img src="./assets/images/readme/Simulator3.png" width=300>
+
 
 ## メンバー
 - Jboy
