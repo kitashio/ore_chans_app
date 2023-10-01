@@ -1,4 +1,5 @@
 import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
+import 'package:ore_chans_app/features/post_crud_app/domain/question/question.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 final saveQuestionProvider = NotifierProvider<SaveQuestionController, Love>(
@@ -13,9 +14,9 @@ class SaveQuestionController extends Notifier<Love> {
     required String question,
     required String answer,
   }) {
-    final questionList = <Map<String, String>>[
+    final questionList = <Question>[
       ...love.questionList,
-      {question: answer}
+      Question(question: question, answer: answer)
     ];
     return Love(
       questionList: questionList,

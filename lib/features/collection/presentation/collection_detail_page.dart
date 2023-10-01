@@ -28,7 +28,7 @@ class CollectionDetailPage extends StatelessWidget {
                       child: Text('Q.',
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold))),
-                  Text(love.questionList[index].keys.first,
+                  Text(love.questionList[index].question,
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 10),
@@ -39,7 +39,7 @@ class CollectionDetailPage extends StatelessWidget {
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
                               color: Color.fromRGBO(255, 82, 82, 1)))),
-                  Text(love.questionList[index].values.first,
+                  Text(love.questionList[index].answer,
                       style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
