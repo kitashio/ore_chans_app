@@ -1,9 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final counterProvider = StateNotifierProvider<Counter, int>((ref) => Counter());
+final deviationControllerProvider =
+    StateNotifierProvider<Deviation, int>((ref) => Deviation());
 
-class Counter extends StateNotifier<int> {
-  Counter() : super(0);
+class Deviation extends StateNotifier<int> {
+  Deviation() : super(0);
 
   void countUp({
     required int level,

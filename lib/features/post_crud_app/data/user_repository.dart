@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/features/auth/data/auth_provider.dart';
 import 'package:ore_chans_app/features/post_crud_app/application/user_provider.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/user/user.dart';
+import 'package:ore_chans_app/features/auth/domain/user/user.dart';
 
 final userServiceProvider = Provider((ref) => UserService(ref));
 
