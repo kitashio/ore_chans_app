@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ore_chans_app/extension/async_value_extension.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/domain/questions_info/questions_info.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/view/question_page/question_page.dart';
-import 'package:ore_chans_app/question/application/get_questions.dart';
+import 'package:ore_chans_app/features/collection/domain/love/love.dart';
+import 'package:ore_chans_app/features/question/application/get_questions.dart';
+import 'package:ore_chans_app/features/question/domain/master_question/master_question.dart';
+import 'package:ore_chans_app/features/question/presentation/question_page.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:ore_chans_app/utils/main_button_component.dart';
 import 'package:ore_chans_app/utils/name_generator.dart';
@@ -26,7 +27,7 @@ class StartPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.handleAsyncValue<QuestionsInfo>(
+    ref.handleAsyncValue<List<MasterQuestion>>(
       getMasterQuestionProvider,
       complete: (context, data) async {
         await Navigator.push(
@@ -36,8 +37,8 @@ class StartPage extends ConsumerWidget {
               imagePath: imagePath,
               name: name,
               index: 0,
-              questions: data.questions,
-              love: data.love,
+              questions: data,
+              love: Love(),
             ),
           ),
         );

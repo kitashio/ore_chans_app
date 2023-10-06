@@ -2,12 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/domain/master_question/master_question.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/pages/result_page.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/view/widgets/answer_button.dart';
-import 'package:ore_chans_app/question/application/count_deviation.dart';
-import 'package:ore_chans_app/question/application/save_question.dart';
+import 'package:ore_chans_app/features/collection/domain/love/love.dart';
+import 'package:ore_chans_app/features/question/domain/master_question/master_question.dart';
+import 'package:ore_chans_app/features/question/presentation/deviation_controller.dart';
+import 'package:ore_chans_app/features/question/presentation/question_controller.dart';
+import 'package:ore_chans_app/features/question/presentation/result_page.dart';
+import 'package:ore_chans_app/utils/answer_button.dart';
 
 class QuestionPage extends ConsumerWidget {
   const QuestionPage({
@@ -134,12 +134,14 @@ class QuestionPage extends ConsumerWidget {
                   onPressed: isFinalQuestion
                       ? () {
                           // 偏差値計算
-                          ref.read(counterProvider.notifier).countUp(
+                          ref
+                              .read(deviationControllerProvider.notifier)
+                              .countUp(
                                 level: questions[index].level,
                                 answer: 1,
                                 correctAnswer: questions[index].correctAnswer,
                               );
-                          final count = ref.read(counterProvider);
+                          final count = ref.read(deviationControllerProvider);
                           final updatedLove = love.copyWith(
                             avaterImagePath: imagePath,
                             name: name,
@@ -156,14 +158,16 @@ class QuestionPage extends ConsumerWidget {
                         }
                       : () {
                           // 偏差値計算
-                          ref.read(counterProvider.notifier).countUp(
+                          ref
+                              .read(deviationControllerProvider.notifier)
+                              .countUp(
                                 level: questions[index].level,
                                 answer: 1,
                                 correctAnswer: questions[index].correctAnswer,
                               );
                           // 質問回答を保存
                           final updatedLove =
-                              ref.read(saveQuestionProvider.notifier).saveGirl(
+                              ref.read(questionController.notifier).saveGirl(
                                     love: love,
                                     question: questions[index].question,
                                     answer: questions[index].answers[0],
@@ -188,12 +192,14 @@ class QuestionPage extends ConsumerWidget {
                   onPressed: isFinalQuestion
                       ? () {
                           // 偏差値計算
-                          ref.read(counterProvider.notifier).countUp(
+                          ref
+                              .read(deviationControllerProvider.notifier)
+                              .countUp(
                                 level: questions[index].level,
                                 answer: 2,
                                 correctAnswer: questions[index].correctAnswer,
                               );
-                          final count = ref.read(counterProvider);
+                          final count = ref.read(deviationControllerProvider);
                           final updatedLove = love.copyWith(
                             avaterImagePath: imagePath,
                             name: name,
@@ -210,14 +216,16 @@ class QuestionPage extends ConsumerWidget {
                         }
                       : () {
                           // 偏差値計算
-                          ref.read(counterProvider.notifier).countUp(
+                          ref
+                              .read(deviationControllerProvider.notifier)
+                              .countUp(
                                 level: questions[index].level,
                                 answer: 1,
                                 correctAnswer: questions[index].correctAnswer,
                               );
                           // 質問回答を保存
                           final updatedLove =
-                              ref.read(saveQuestionProvider.notifier).saveGirl(
+                              ref.read(questionController.notifier).saveGirl(
                                     love: love,
                                     question: questions[index].question,
                                     answer: questions[index].answers[0],

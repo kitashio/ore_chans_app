@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ore_chans_app/features/post_crud_app/domain/converter/timestamp_converter.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/question/question.dart';
+import 'package:ore_chans_app/features/question/domain/question/question.dart';
 
 part 'love.freezed.dart';
 part 'love.g.dart';

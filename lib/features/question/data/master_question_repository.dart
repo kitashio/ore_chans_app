@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ore_chans_app/features/post_crud_app/presentation/domain/master_question/master_question.dart';
+import 'package:ore_chans_app/features/question/domain/master_question/master_question.dart';
 
 final masterQuestionsRepositoryProvider = Provider(
   (ref) => MasterQuestionsRepository(FirebaseFirestore.instance),

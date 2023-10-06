@@ -1,13 +1,14 @@
-import 'package:ore_chans_app/features/post_crud_app/domain/love/love.dart';
-import 'package:ore_chans_app/features/post_crud_app/domain/question/question.dart';
+import 'package:ore_chans_app/features/collection/domain/love/love.dart';
+import 'package:ore_chans_app/features/question/domain/question/question.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final saveQuestionProvider = NotifierProvider<SaveQuestionController, Love>(
-    () => SaveQuestionController());
+final questionController = AsyncNotifierProvider<QuestionNotifier, void>(() {
+  return QuestionNotifier();
+});
 
-class SaveQuestionController extends Notifier<Love> {
+class QuestionNotifier extends AsyncNotifier<void> {
   @override
-  Love build() => const Love();
+  void build() => {};
 
   Love saveGirl({
     required Love love,
